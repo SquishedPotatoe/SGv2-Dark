@@ -15,4 +15,4 @@ Install [Stylus](https://add0n.com/stylus.html) for either [Firefox](https://add
 
 📦 [Install the usercss](https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.user.css) which supports automatic updates and customization.<br>
 📦 [Install manually from GitHub](https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.css) with no customization. The style is in Mozilla format.<br>
-📦 [Install script](https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.js)  which supports automatic updates but no customization.<br>
+📦 [Install script](https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.user.js)  which supports automatic updates but no customization.<br>
