@@ -5,7 +5,7 @@
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
-// @updateURL      https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.js
+// @updateURL      https://github.com/SquishedPotatoe/SGv2-Dark/raw/master/SGv2-Dark.user.js
 // @supportURL     https://github.com/SquishedPotatoe/SGv2-Dark/issues
 // @include        *://www.steamgifts.com/*
 // @include        *://www.steamtrades.com/*
