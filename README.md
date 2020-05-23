@@ -4,7 +4,7 @@ SGv2 Dark style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.c
 
 ---
  
-## Current Version 1.6.0
+## Current Version 1.6.1
 
 ## Preview
 ![Preview of SGv2 Dark](./screenshots/Giveaway.png)
