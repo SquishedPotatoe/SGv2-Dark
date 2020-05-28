@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.1  2020-05-22 */
+  var css = `/* SGv2 Dark v1.6.1  2020-05-28 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -2615,6 +2615,7 @@ div.sg-info {
 }
 .sidebar.esgst-ns {
     width: unset!important;
+    min-width: 206px!important;
 }
 .sidebar.esgst-ns .sidebar__mpu {
     max-width: 206px!important;

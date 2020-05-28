@@ -130,7 +130,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.1  2020-05-22 */
+/* SGv2 Dark v1.6.1  2020-05-28 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -2722,6 +2722,7 @@ div.sg-info {
 }
 .sidebar.esgst-ns {
     width: unset!important;
+    min-width: 206px!important;
 }
 .sidebar.esgst-ns .sidebar__mpu {
     max-width: 206px!important;
