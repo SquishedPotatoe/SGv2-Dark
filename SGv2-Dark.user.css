@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SGv2 Dark
-@namespace      SGv2 Dark 1.6.1
-@version        1.6.1
+@namespace      SGv2 Dark 1.6.2
+@version        1.6.2
 @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -38,6 +38,9 @@
 @var color content-border-color "Content Border" hsla(60,2%,23%,1)
 @var color content-inner-bg-color "Content Inner Background" hsla(60,12%,0%,0.2)
 @var color content-inner-border-color "Content Inner Border" hsla(60,12%,0%,0.35)
+@var color enter-green-buttons-bg-color "Enter Buttons Green" hsla(91, 61%, 28%, 1)
+@var color enter-red-buttons-bg-color "Enter Buttons Red" hsla(0, 55%, 35%, 1)
+@var color enter-yellow-buttons-bg-color "Enter Buttons Yellow" hsla(57, 59%, 50%, 1)
 @var color featured-bg-color "Featured Background" hsla(0,0%,24%,1)
 @var color featured-border-color "Featured Border" hsla(0,0%,0%,1)
 @var select featured-image "Featured Image" {
@@ -78,6 +81,11 @@
 @var color nav-dropdown-bg-color "Nav Dropdown Background" rgb(75, 75, 75)
 @var color nav-dropdown-border-color "Nav Dropdown border" #000
 @var color nav-txt-color "Nav Text" rgb(209, 209, 209)
+@var color notification-blue-bg-color "Notification Blue Background" hsla(210, 65%, 44%, 0.23)
+@var color notification-green-bg-color "Notification Green Background" hsla(88, 65%, 44%, 0.14)
+@var color notification-grey-bg-color "Notification Grey Background" hsla(0, 0%, 24%, 0.2)
+@var color notification-red-bg-color "Notification Red Background" hsla(0, 65%, 44%, 0.23)
+@var color notification-yellow-bg-color "Notification Yellow Background" hsla(62, 65%, 44%, 0.23)
 @var select page-width "Page Width" {
   "100%": "100%",
   "Fixed": "1400px"
@@ -103,6 +111,8 @@
 @var color scrollbar-thumb "Scrollbar thumb" hsla(0, 0%, 15%, 1)
 @var color scrollbar-track "Scrollbar track" hsla(0, 0%, 10%, 1)
 @var color secondary-txt-color "Secondary Text" rgb(128, 141, 157)
+@var color select-highlight-color "Select Highlight" hsl(91, 45%, 38%)
+@var color select-highlight-bg-color "Select Highlight Background" hsla(0, 0%, 43%, 0.5)
 @var color separator-dark-color "Seperator Dark" hsla(60,2%,4%,1)
 @var color separator-hover-color "Seperator Hover" hsla(180, 20%, 40%, 1)
 @var color separator-light-color "Seperator Light" hsla(60,2%,21%,1)
@@ -130,7 +140,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.1  2020-05-28 */
+/* SGv2 Dark v1.6.2  2020-08-27 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -149,6 +159,12 @@
   --SGSP-content-border-color: @content-border-color;
   --SGSP-content-inner-bg-color: @content-inner-bg-color;
   --SGSP-content-inner-border-color: @content-inner-border-color;
+  --SGSP-enter-green-buttons-bg-color: linear-gradient(desaturate(lighten(@enter-green-buttons-bg-color, 13%), 24%) 0%, @enter-green-buttons-bg-color 50%, spin(saturate(darken(@enter-green-buttons-bg-color, 11%), 7%), -3%) 100%);  
+  --SGSP-enter-green-buttons-txt-color: spin(desaturate(lighten(@enter-green-buttons-bg-color, 52%), 15%), 3%);
+  --SGSP-enter-red-buttons-bg-color: linear-gradient(desaturate(lighten(@enter-red-buttons-bg-color, 10%), 11%) 0%, @enter-red-buttons-bg-color 50%, saturate(darken(@enter-red-buttons-bg-color, 11%), 19%) 100%);
+  --SGSP-enter-red-buttons-txt-color: saturate(lighten(@enter-red-buttons-bg-color, 50%), 45%);
+  --SGSP-enter-yellow-buttons-bg-color: linear-gradient(darken(@enter-yellow-buttons-bg-color, 3%) 0%, saturate(darken(@enter-yellow-buttons-bg-color, 26%), 41%) 100%);
+  --SGSP-enter-yellow-buttons-txt-color: spin(saturate(lighten(@enter-yellow-buttons-bg-color, 35%), 11%), 6%);
   --SGSP-featured-bg-color: @featured-bg-color;
   --SGSP-featured-border-color: @featured-border-color;
   --SGSP-featured-giveaway-bg-gradient: linear-gradient(@featured-bg-color 0%, darken(@featured-bg-color, 16.5%) 100%);
@@ -194,6 +210,21 @@
   --SGSP-nav-dropdown-border-color: @nav-dropdown-border-color;
   --SGSP-nav-dropdown-hover-bg-color: var(--SGSP-nav-button-bg-color);
   --SGSP-nav-txt-color: @nav-txt-color;
+  --SGSP-notification-blue-bg-color: linear-gradient(@notification-blue-bg-color 0%, fadein(saturate(darken(@notification-blue-bg-color, 20%), 7%), 67%) 100%)!important;
+  --SGSP-notification-blue-border-color: fadein(saturate(darken(@notification-blue-bg-color, 14%), 35%), 77%);
+  --SGSP-notification-blue-txt-color: fadein(lighten(@notification-blue-bg-color, 30%), 77%);
+  --SGSP-notification-green-bg-color: linear-gradient(@notification-green-bg-color 0%, fadein(saturate(darken(@notification-green-bg-color, 23%), 7%), 49%) 100%)!important;
+  --SGSP-notification-green-border-color: fadein(saturate(darken(@notification-green-bg-color, 17%), 25%), 56%)!important;
+  --SGSP-notification-green-txt-color: fadein(saturate(lighten(@notification-green-bg-color, 30%), 6%), 66%);
+  --SGSP-notification-grey-bg-color: linear-gradient(@notification-grey-bg-color 0%, fadein(darken(@notification-grey-bg-color, 6%), 70%) 100%)!important;
+  --SGSP-notification-grey-border-color: fadein(lighten(@notification-grey-bg-color, 6%), 80%)!important;
+  --SGSP-notification-grey-txt-color: fadein(lighten(@notification-grey-bg-color, 41%), 75%); 
+  --SGSP-notification-red-bg-color: linear-gradient(@notification-red-bg-color 0%, fadein(saturate(darken(@notification-red-bg-color, 20%), 7%), 67%) 100%)!important;
+  --SGSP-notification-red-border-color: fadein(saturate(darken(@notification-red-bg-color, 17%), 35%), 77%)!important;
+  --SGSP-notification-red-txt-color: fadein(saturate(lighten(@notification-red-bg-color, 28%), 10%), 77%)!important;
+  --SGSP-notification-yellow-bg-color: linear-gradient(@notification-yellow-bg-color 0%, fadein(saturate(darken(@notification-yellow-bg-color, 20%), 7%), 67%) 100%)!important;
+  --SGSP-notification-yellow-border-color: fadein(saturate(darken(@notification-yellow-bg-color, 17%), 35%), 77%);
+  --SGSP-notification-yellow-txt-color: fadein(desaturate(lighten(@notification-yellow-bg-color, 34%), 5%), 67%)!important;
   --SGSP-page-width: @page-width;
   --SGSP-pageheading-bg-color: linear-gradient(@pageheading-bg-color 0%, saturate(darken(@pageheading-bg-color, 14%), 7) 100%);
   --SGSP-pageheading-border-color: @pageheading-border-color darken(@pageheading-border-color, 5%) darken(@pageheading-border-color, 11%) darken(@pageheading-border-color, 5%);
@@ -223,6 +254,8 @@
   --SGSP-scrollbar-thumb-bg-color: @scrollbar-thumb;
   scrollbar-color: @scrollbar-thumb @scrollbar-track;
   --SGSP-secondary-txt-color: @secondary-txt-color;
+  --SGSP-select-highlight-color: @select-highlight-color;
+  --SGSP-select-highlight-bg-color: @select-highlight-bg-color;
   --SGSP-separator-dark-color: @separator-dark-color;
   --SGSP-separator-hover-color: @separator-hover-color;
   --SGSP-separator-light-color: @separator-light-color;
@@ -356,7 +389,7 @@ body {
     background-color: transparent!important;
     background-image: none;
 }
-.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .notification--success, .notification.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-notification-success, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem, body .featured__column--contributor-level--positive:not(.esgst-glh-highlight), body .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), body .page__heading__button--green {
+.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
     border: 1px solid #000!important;
@@ -484,7 +517,7 @@ blockquote::after {
     position: relative;
     bottom: 335px;
 }
-#content #charts h2.center, #content .sidebar__navigation:last-of-type + div, .is-hidden, img[title*="Extended Steamgifts"] {
+#content #charts h2.center, #content .sidebar__navigation:last-of-type + div, img[title*="Extended Steamgifts"] {
     display: none;
 }
 #content .sidebar--wide {
@@ -1549,7 +1582,7 @@ div > .table__column--width-fill > form > strong {
     padding: 0 20px!important;
     text-shadow: var(--SGSP-ts-70);
 }
-form[method="post"] .form__rows .form__row + .form__submit-button, [key*="esg"] + .form__submit-button {
+form[method="post"] .form__rows .form__row + .form__submit-button, [key*="esg"] + .form__submit-button, form[method="post"] .form__rows .form__row + .esgst-form-row + .form__submit-button {
     margin-bottom: 20px;
 }
 .form__row:first-of-type {
@@ -1574,7 +1607,7 @@ form .heading {
     border-left: 1px solid var(--SGSP-separator-light-color)!important;
     box-shadow: -1px 0 0 var(--SGSP-separator-dark-color)!important;
 }
-.form__sync-data > .notification--warning {
+.form__sync-data > .notification {
     margin-right: 5px;
 }
 .form__screenshot {
@@ -1763,7 +1796,7 @@ input, textarea {
 .icon_to_clipboard[style*="rgb(91, 178, 190)"] {
     color: fade(@green-icons-txt-color, 100%)!important;
 }
-.icon-green, i.fa.fa-check-circle-o.green, .sg-icon-green, .sidebar_table > div:not(.is_warning) i, .table i.green, .author_permalink, .comment__permalink, .is_permalink, .dropdown_btn i.green, .popup.is_success .popup_icon i, #filter, .esgst-header-menu-row i.green, .tooltip_row i[style*="color: #96c468"], .sidebar__navigation__item:not(.is-selected) i.fa-chevron-circle-right, .esgst-green {
+.icon-green, i.fa.fa-check-circle-o.green, .sg-icon-green, .sidebar_table > div:not(.is_warning) i, .table i.green, .author_permalink, .comment__permalink, .is_permalink, .dropdown_btn i.green, .popup.is_success .popup_icon i, #filter, .esgst-header-menu-row i.green, .tooltip_row i[style*="color: #96c468"], .sidebar__navigation__item:not(.is-selected) i.fa-chevron-circle-right, .esgst-green, .giveaway__heading__name__promotion {
     color: var(--SGSP-green-icons-txt-color)!important;
 }
 .icon-grey, .sg-icon-grey, .dropdown_btn i.grey, .esgst-header-menu-row i.grey, .esgst-grey {
@@ -2122,28 +2155,45 @@ nav .nav_avatar {
 .dropdown_btn {
     color: var(--SGSP-sidebar-link-txt-color);
 }
-.notification--success, .notification.green, .esgst-notification-success {
-    cursor: default;
-    filter: hue-rotate(30deg) saturate(0.5) opacity(0.7);
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    margin-right: 5px;
-}
-.notification--success.notification--margin-top-small {
-    margin-right: 0;
-}
-.notification.green {
-    margin-right: 0;
+.notification {
+    line-height: 18px;
     padding: 7px 15px;
+    text-shadow: var(--SGSP-ts-38);
 }
 .notification i {
-    margin-right: 2px;
+    margin-right: 5px;
+}
+.notification--success, .notification.green, .esgst-notification-success {
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-green-bg-color);
+    border-color: var(--SGSP-notification-green-border-color);
+    color: var(--SGSP-notification-green-txt-color);
+    cursor: default;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+.notification--info, .notification.blue {
+    background-color: transparent;
+    background-image: var(--SGSP-notification-blue-bg-color);
+    border-color: var(--SGSP-notification-blue-border-color);
+    color: var(--SGSP-notification-blue-txt-color);
+}
+.notification--danger, .notification.red {
+    background-color: transparent;
+    background-image: var(--SGSP-notification-red-bg-color);
+    border-color: var(--SGSP-notification-red-border-color);
+    color: var(--SGSP-notification-red-txt-color);
+}
+.notification--default, .notification.gray {
+    background-color: transparent!important;
+    background-image: var(--SGSP-notification-grey-bg-color);
+    border-color: var(--SGSP-notification-grey-border-color);
+    color: var(--SGSP-notification-grey-txt-color);
 }
 .notification--warning, .notification.yellow, .esgst-notification-warning {
-    background-image: var(--SGSP-yellow-buttons-bg-color)!important;
-    border-color: var(--SGSP-yellow-buttons-border-color)!important;
-    color: var(--SGSP-yellow-buttons-txt-color)!important;
-    text-shadow: var(--SGSP-ts-38);
+    background-image: var(--SGSP-notification-yellow-bg-color);
+    border-color: var(--SGSP-notification-yellow-border-color);
+    color: var(--SGSP-notification-yellow-txt-color);
 }
 .page__heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(#filterControls):not(.btn_actions):not(.notification):not(.pagination):not(.page__heading):not(.table__heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container):not(.esgst-popup-actions):not(.esgst-popup-scrollable):not(.esgst-text-left):not(.esgst-gv-view):not(.esgst-form-row):not(.esgst-menu-split), .page_heading ~ div:not(.esgst-button-set):not(.row-spacer):not(.align-button-container):not(.btn_actions):not(.notification):not(.pagination):not(.page_heading):not(.table_heading):not(.widget-container):not(.form__row):not(.giveaway__row-outer-wrap):not(.leaderboard):not(.esgst-gf-container), .comments:not(.esgst-text-left), .pagination.pagination--no-results, .pagination_no_results, .esgst-glwc-results .table {
     background-color: var(--SGSP-content-bg-color);
@@ -2194,7 +2244,7 @@ nav .nav_avatar {
     box-shadow: none;
     z-index: 2;
 }
-.page__heading__button--red, .header__error, #infraction, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .cmGame.bundled, .btn-danger, body .page__heading__button--red, body .featured__column--contributor-level--negative:not(.esgst-glh-highlight), body .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight) {
+.page__heading__button--red, .header__error, #infraction, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .cmGame.bundled, .btn-danger {
     background-image: var(--SGSP-red-buttons-bg-color)!important;
     border: 1px solid #000!important;
     border-color: var(--SGSP-red-buttons-border-color)!important;
@@ -2287,8 +2337,8 @@ nav .nav_avatar {
 .page__inner-wrap.page__inner-wrap--narrow, .page__limit-width {
     max-width: 70%!important;
 }
-.page__inner-wrap--narrow .page__heading + .notification--success {
-    margin: 5px 0 -3px;
+.page__inner-wrap--narrow .page__heading + .notification--success, .page_inner_wrap.medium .page_heading + .notification.green {
+    margin-top: 1px!important;
 }
 .page__inner-wrap--narrow .page__heading + .notification--success i {
     margin-bottom: 3px;
@@ -2850,7 +2900,7 @@ a.sidebar__navigation__item__link.expired:not(.sidebar__navigation__item__underl
     transition: visibility 0s linear 0.3s, opacity 0.3s ease 0s, top 0.3s ease 0s;
     z-index: 50;
 }
-.header_search > div > div > div:last-child:active, .header_search > div > div > div:last-child:active, .sidebar__shortcut-inner-wrap > *:not(.is-disabled):active, .sidebar__entry-loading:not(.is-disabled):active, .comment__submit-button:not(.is-disabled):active, .page__description__save:not(.is-disabled):active, .poll__vote-button:not(.is-disabled):active, .form__add-answer-button:not(.is-disabled):active, .form__sync-loading:not(.is-disabled):active, .btn_action:active:not(.is_saving):not(.is_disabled), .sidebar__entry-insert:not(.is-disabled):active, .sidebar__action-button:not(.is-disabled):active, .nav__sits:not(.is-disabled):active, .form__submit-button:not(.is-disabled):active, .form__sync-default:not(.is-disabled):active, .featured__action-button:not(.is-disabled):active, .sidebar__entry-delete:active, #content #gaurl a:active, #content .manageGa a:active, #content .showBundledDeals:active, #content button[type="submit"]:active, #content #activated_send:active, #content #real_cv_send:active, #content #multiple_wins_send:active, #content #giveaway_Create:active, #content .back-guide a:active, #content .gaButton:active, #content #giveaway_filters_Update:active, .sp-container button:active, .esgst-sm-colors-default:active, .view_key_btn:active, .esgst-sgpb-button:active, #DTEP_SteamApiKey + input:active, .show-hide-giveaway-list.small-colored:active, #dlg-body .RC-button:active, #dlg-body .RCE-button:active, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):active, .esgst-chfl-panel i:active, .table__column__key__redeem:active {
+.header_search > div > div > div:last-child:active, .header_search > div > div > div:last-child:active, .sidebar__shortcut-inner-wrap > *:not(.is-disabled):active, .sidebar__entry-loading:not(.is-disabled):active, .comment__submit-button:not(.is-disabled):active, .page__description__save:not(.is-disabled):active, .poll__vote-button:not(.is-disabled):active, .form__add-answer-button:not(.is-disabled):active, .form__sync-loading:not(.is-disabled):active, .btn_action:active:not(.is_saving):not(.is_disabled), .sidebar__entry-insert:not(.is-disabled):active, .sidebar__action-button:not(.is-disabled):active, .nav__sits:not(.is-disabled):active, .form__saving-button:not(.is-disabled):active, .form__submit-button:not(.is-disabled):active, .form__sync-default:not(.is-disabled):active, .featured__action-button:not(.is-disabled):active, .sidebar__entry-delete:active, #content #gaurl a:active, #content .manageGa a:active, #content .showBundledDeals:active, #content button[type="submit"]:active, #content #activated_send:active, #content #real_cv_send:active, #content #multiple_wins_send:active, #content #giveaway_Create:active, #content .back-guide a:active, #content .gaButton:active, #content #giveaway_filters_Update:active, .sp-container button:active, .esgst-sm-colors-default:active, .view_key_btn:active, .esgst-sgpb-button:active, #DTEP_SteamApiKey + input:active, .show-hide-giveaway-list.small-colored:active, #dlg-body .RC-button:active, #dlg-body .RCE-button:active, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):active, .esgst-chfl-panel i:active, .table__column__key__redeem:active {
     transition: filter 0.01s;
     will-change: filter;
     margin-top: 0;
@@ -3221,10 +3271,12 @@ progress::-moz-progress-bar {
     border-color: hsl(88, 90%, 27%)!important;
 }
 ::-moz-selection {
-    color: hsl(91, 45%, 38%);
+    background: var(--SGSP-select-highlight-color);
+    color: var(--SGSP-select-highlight-color);
 }
 ::selection {
-    color: hsl(91, 45%, 38%);
+    background: var(--SGSP-select-highlight-bg-color);
+    color: var(--SGSP-select-highlight-color);
 }
 ::-webkit-scrollbar {
     background: transparent;
@@ -4904,10 +4956,10 @@ label.SGPP__settings-checkbox:before {
 .esgst-gm-giveaway.connected {
     opacity: 1;
 }
-.esgst-gv-icons > *:not(.esgst-button-set) {
+.esgst-gv-icons > *:not(.esgst-button-set):not(.esgst-button-container):not(.esgst-ge-sgt-button) {
     border: none!important;
     border-radius: 5px 0 0 0!important;
-    box-shadow: 0 -1px 0 0 hsla(60, 1%, 60%, 1), 1px 0 0 0 hsla(60, 1%, 58%, 1), 0 1px 0 0 hsla(60, 1%, 37%, 1), -1px 0 0 0 hsla(60, 1%, 58%, 1)!important;
+    box-shadow: 0 -1px 0 0 hsla(0, 0%, 65%, 1), 1px 0 0 0 hsla(0, 0%, 58%, 1), 0 1px 0 0 hsla(0, 0%, 37%, 1), -1px 0 0 0 hsla(0, 0%, 58%, 1)!important;
     line-height: 16px;
     padding: 0 4px 0 3px!important;
     text-shadow: var(--SGSP-ts-4)!important;
@@ -4915,7 +4967,7 @@ label.SGPP__settings-checkbox:before {
 .esgst-gv-icons > *:not(:last-child), .esgst-gv-icons > *:not(:last-child) > .btn_action, .esgst-gv-icons > *:not(:last-child) > .sidebar__error, .esgst-gv-icons > .esgst-ge-sgt-button:not(:last-child) > .form__submit-button {
     border-radius: 5px 1px 4px 0!important;
 }
-.esgst-gv-icons > *:last-child, .esgst-gv-icons > *:last-child > .btn_action, .esgst-gv-icons > *:last-child > .sidebar__error, .esgst-gv-icons > .esgst-ge-sgt-button:last-child > .form__submit-button {
+.esgst-gv-icons > *:last-child, .esgst-gv-icons > *:last-child > .btn_action, .esgst-gv-icons > *:last-child > [data-draggable-id="elgb"], .esgst-gv-icons > *:last-child > .sidebar__error, .esgst-gv-icons > .esgst-ge-sgt-button:last-child > .form__submit-button {
     border-radius: 5px 0 2px 0!important;
 }
 .esgst-gv-icons > .esgst-ge-sgt-button:first-child > .form__submit-button {
@@ -5168,7 +5220,7 @@ input:checked + .esgst-toggle-switch-slider {
 }
 .esgst-ggl-panel a + a:not(.esgst-tag-button) {
     box-shadow: 0 1px 0 fade(@secondary-txt-color, 30%)!important;
-	border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
     border-color: fade(@secondary-txt-color, 60%);
 }
 .esgst-ggl-panel .esgst-ggl-member a + a:not(.esgst-tag-button){
@@ -5490,7 +5542,7 @@ input:checked + .esgst-toggle-switch-slider {
     background-image: linear-gradient(fade(@pinned-bg-color, 100%) 0%, darken(desaturate(fade(@pinned-bg-color, 100%), 12%), 5%) 100%);
     border: 1px solid var(--SGSP-pinned-border-color)!important;
     border-radius: 4px 4px 0 0!important;
-    margin-top: 0 !important;
+    margin-top: 0!important;
     margin-bottom: -3px!important;
     padding: 0 5px!important;
 }
@@ -5687,7 +5739,7 @@ input:checked + .esgst-toggle-switch-slider {
 .form__rows > .esgst-button-set {
     margin-bottom: 20px!important;
 }
-.esgst-form-row-indent > div {
+.esgst-form-row-indent > div:not(.esgst-button) {
     line-height: 16px;
 }
 .esgst-tab-menu {
@@ -5701,7 +5753,7 @@ input:checked + .esgst-toggle-switch-slider {
     max-width: 583px;
 }
 .esgst-settings-menu .esgst-steam-api-key {
-	border:1px solid;
+    border:1px solid;
     max-width: 578px;
 }
 .esgst-form-heading-number {
@@ -5712,10 +5764,14 @@ input:checked + .esgst-toggle-switch-slider {
     font-size: 11px!important;
     color: hsl(60, 2%, 56%)!important;
 }
-.esgst-page-heading > *:not(.esgst-sttb-button):not(.esgst-stbb-button) {
+.esgst-page-heading > *:not(.esgst-sttb-button):not(.esgst-stbb-button), .page__heading__button.esgst-button, .page_heading_button.esgst-button, .page_heading_btn.esgst-button {
     background-image: var(--SGSP-pageheading-bg-color)!important;
     border-color: var(--SGSP-pageheading-border-color)!important;
     color: var(--SGSP-pageheading-txt-color)!important;
+}
+.page_heading_btn.esgst-button i {
+    line-height: 22px;
+    margin: 0;
 }
 .esgst-settings-menu > .esgst-button-set {
     margin: 10px 0 10px;
@@ -5820,19 +5876,19 @@ input:checked + .esgst-toggle-switch-slider {
 .esgst-aic-right-button {
     padding: 10px 8px 8px 10px;
 }
-.esgst-es-page-divisor {
+.esgst-es-page-divisor, .esgst-es-page-divider {
     margin: -1px -10px 5px;
     will-change: transform;
 }
-.esgst-gv-view .esgst-es-page-divisor {
+.esgst-gv-view .esgst-es-page-divisor, .esgst-gv-view .esgst-es-page-divider {
     margin: 5px 0;
 }
-.esgst-es-page-divisor > .page__heading__breadcrumbs.page_heading_breadcrumbs {
+.esgst-es-page-divisor > .page__heading__breadcrumbs.page_heading_breadcrumbs, .esgst-es-page-divider > .page__heading__breadcrumbs.page_heading_breadcrumbs {
     border-radius: 0;
     border-left: none;
     border-right: none;
 }
-.comments > .esgst-es-page-divisor:first-of-type > .page__heading__breadcrumbs.page_heading_breadcrumbs {
+.comments > .esgst-es-page-divisor:first-of-type > .page__heading__breadcrumbs.page_heading_breadcrumbs, .comments > .esgst-es-page-divider:first-of-type > .page__heading__breadcrumbs.page_heading_breadcrumbs {
     border-top: none;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -5922,6 +5978,9 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
     margin-left: auto;
     margin-right: auto;
     max-width: 184px;
+}
+.esgst-gv-box.is-faded + .esgst-gc-border {
+    opacity: 0.25;
 }
 .sidebar .esgst-button-set > * {
     width: 302px!important;
@@ -6216,14 +6275,14 @@ input[placeholder="Filter features..."] {
     padding: 0 4px 0 3px!important;
     text-shadow: var(--SGSP-ts-4)!important;
 }
-.esgst-gv-icons .btn_action > i, .esgst-gv-icons .sidebar__error > i {
+.esgst-gv-icons .btn_action > i, .esgst-gv-icons .sidebar__error:not(.esgst-button) > i {
     display: block;
     line-height: 16px;
 }
 .esgst-gv-icons .fa-spin {
     text-shadow: var(--SGSP-ts-8);
 }
-.esgst-gv-icons .esgst-elgb-button .btn_action > span, .esgst-gv-icons .esgst-elgb-button .sidebar__error > span, .esgst-gv-icons .esgst-gwc > i, .esgst-gv-icons .esgst-gwr > i, .esgst-gv-icons .esgst-gptw > i, .esgst-gc-panel:empty, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id].esgst-gc, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-gv-popout .esgst-giveaway-panel:empty, .esgst-gv-icons .esgst-gc, .esgst-gv-icons .esgst-gc-genres, .comments:empty {
+.esgst-gv-icons .esgst-elgb-button .btn_action > span, .esgst-gv-icons .esgst-elgb-button .sidebar__error > span, .esgst-gv-icons .esgst-gwc > i, .esgst-gv-icons .esgst-gwr > i, .esgst-gv-icons .esgst-gptw > i, .esgst-gc-panel:empty, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id].esgst-gc, .esgst-gv-popout .esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-gv-popout .esgst-giveaway-links .esgst-button-container, .esgst-gv-popout .esgst-giveaway-panel:empty, .esgst-gv-icons .esgst-gc, .esgst-gv-icons .esgst-gc-genres, .comments:empty {
     display: none;
 }
 .esgst-gv-icons .esgst-gp-button .btn_action.grey {
@@ -6453,7 +6512,7 @@ input[placeholder="Filter features..."] {
     margin-top: -8px!important;
 }
 .page__heading:not(.esgst-fmph) + .esgst-gf-container {
-	margin-top:5px;
+    margin-top:5px;
     top: 0;
     padding: 0;
 }
@@ -7082,7 +7141,7 @@ input[placeholder="Filter features..."] {
 .esgst-giveaway-links .giveaway__heading [data-draggable-id].esgst-gc i {
     font-size: 11px;
 }
-.esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-giveaway-links [data-draggable-id] .btn_action:hover, .esgst-giveaway-links [data-draggable-id] .btn_action:active {
+.esgst-giveaway-links [data-draggable-id] .btn_action, .esgst-giveaway-links [data-draggable-id] .btn_action:hover, .esgst-giveaway-links [data-draggable-id] .btn_action:active, .giveaway__links .esgst-button, .giveaway__links .esgst-button:hover, .giveaway__links .esgst-button:active {
     background: none!important;
     border: none!important;
     box-shadow: none!important;
@@ -7090,13 +7149,13 @@ input[placeholder="Filter features..."] {
     font-weight: 900;
     line-height: 14px!important;
 }
-.esgst-giveaway-links .btn_action.green span, .esgst-giveaway-links .btn_action.green i {
+.esgst-giveaway-links .btn_action.green span, .esgst-giveaway-links .btn_action.green i, .esgst-giveaway-links .esgst-button.form__submit-button, .esgst-giveaway-links .esgst-button.form__submit-button i {
     color: var(--SGSP-green-icons-txt-color)!important;
 }
-.esgst-giveaway-links .btn_action.yellow span, .esgst-giveaway-links .btn_action.yellow i {
+.esgst-giveaway-links .btn_action.yellow span, .esgst-giveaway-links .btn_action.yellow i, .esgst-giveaway-links .esgst-button.sidebar__entry-delete, .esgst-giveaway-links .esgst-button.sidebar__entry-delete i {
     color: var(--SGSP-yellow-icons-txt-color)!important;
 }
-.esgst-giveaway-links .btn_action.red span, .esgst-giveaway-links .btn_action.red i {
+.esgst-giveaway-links .btn_action.red span, .esgst-giveaway-links .btn_action.red i, .esgst-giveaway-links .esgst-button.sidebar__error, .esgst-giveaway-links .esgst-button.sidebar__error i {
     color: var(--SGSP-red-icons-txt-color)!important;
 }
 .esgst-gv-popout .esgst-giveaway-links [data-draggable-id="gb"] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="gb"] i {
@@ -7122,7 +7181,7 @@ input[placeholder="Filter features..."] {
     margin: 5px;
     padding: 11px 5px;
 }
-.esgst-popup-layer .page__heading ~ div:not(.sidebar__search-container):not(.esgst-ugd-table), .esgst-popup-layer .page_heading ~ div:not(.sidebar__search-container), .esgst-sync-options > .form__rows, .esgst-settings-menu-feature .form__rows {
+.esgst-popup-layer .page__heading ~ div:not(.sidebar__search-container):not(.esgst-ugd-table):not(.notification), .esgst-popup-layer .page_heading ~ div:not(.sidebar__search-container), .esgst-sync-options > .form__rows, .esgst-settings-menu-feature .form__rows {
     background-color: unset!important;
     background-image: none;
     border: none!important;
@@ -7353,6 +7412,76 @@ input[placeholder="Filter features..."] {
 }
 .esgst-gm-section .pinned-giveaways__outer-wrap {
     box-shadow: none;
+}
+.esgst-button + .esgst-notification-bar.notification--margin-top-small {
+    margin-top: 5px!important;
+}
+.esgst-gm-section .esgst-button:not(:nth-of-type(2)) {
+    margin: 5px 0 5px 5px;
+}
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container) {
+    border: none!important;
+    box-shadow: 0 0 0 1px #000, 0 0 0 1px #000!important;
+    display: block;
+    line-height: 14px;
+    margin: 0;
+    padding: 0 4px 2px 3px!important;
+    text-shadow: var(--SGSP-ts-4)!important;
+    width: 12px;
+}
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container) i {
+    line-height: 11.1px;
+    padding: 0px 2px;
+}
+body .esgst-button-container {
+    background-image: none!important;
+    border: 0;
+    box-shadow: none!important;
+    padding: 0!important;
+}
+.giveaway__columns:not(.esgst-gv-icons) .esgst-button-container {
+    margin-left: unset;
+}
+.esgst-giveaway-panel > *:not(:last-child) {
+    margin: 0 5px 0 0;
+}
+.esgst-sm-additional-option >* input[type="color"] {
+    border: 1px solid;
+    padding: 0 2px;
+    max-width: 50px;
+}
+.esgst-sm-additional-option >* input[type="color"] + input[type="number"] {
+    border: 1px solid;
+    max-width: 50px;
+    padding: 1px 0 2px 5px;
+}
+.esgst-sm-additional-option >* input[type="color"] + input[type="number"] + .form__saving-button {
+    border-radius: 4px;
+    line-height: 21px;
+    padding: 0 15px;
+}
+.esgst-element-ordering-container .esgst-button {
+    float: right;
+}
+.esgst-notification-bar.notification:empty {
+    display: none;
+}
+.giveaway__heading .esgst-button-container.esgst-elgb-button i {
+    font-size: 12px;
+}
+.giveaway__heading .esgst-button-container.esgst-elgb-button {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+.esgst-gv-popout .esgst-panel-flexbox + div .esgst-button-container.esgst-elgb-button {
+    margin-top: 5px;
+    line-height: 26px;
+}
+.esgst-ns.sidebar .esgst-button {
+    width: 174px!important;
 }
 div[style*="margin-top: 25px"], div[style*="padding-top: 35px"] {
     margin: 0 0 8px!important;
@@ -7869,41 +7998,35 @@ input#SkipEnded {
         will-change: unset!important;
     }
 }
-body .esgst-gv-icons .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight) {
-    background-color: hsl(92, 30%, 26%)!important;
-}
-body .esgst-gv-icons .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight) {
-    background-color: hsl(0, 60%, 35%)!important;
-}
-body .esgst-gv-icons .esgst-elgb-button {
-    background-image: var(--SGSP-green-buttons-bg-color)!important;
-}
 .esgst-ge-sgt-button > .form__submit-button {
     border-color: hsla(185, 65%, 48%, 1) #3197a0 hsla(185, 60%, 36%, 1) #3197a0!important;
 }
-.esgst-gv-icons > *:not(.esgst-button-set), .esgst-gv-icons .btn_action, .esgst-gv-icons .sidebar__error {
-    box-shadow: 0 -1px 0 0 hsla(60, 1%, 60%, 1), -1px 0 0 0 hsla(60, 1%, 58%, 1), 0 1px 0 0 hsla(60, 1%, 37%, 1), 1px 0 0 0 hsla(60, 1%, 58%, 1)!important;
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container), .esgst-gv-icons .btn_action, .esgst-gv-icons .sidebar__error {
+    box-shadow: 0 -1px 0 0 hsla(0, 0%, 65%, 1), -1px 0 0 0 hsla(0, 0%, 58%, 1), 0 1px 0 0 hsla(0, 0%, 37%, 1), 1px 0 0 0 hsla(0, 0%, 58%, 1)!important;
 }
-.esgst-gv-icons .giveaway__column--group {
+.esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--group {
     box-shadow: 0 -1px 0 0 spin(saturate(lighten(@group-border-color, 17%), 12%), -3%), 0 1px 0 0 @group-border-color, 1px 0 0 0 saturate(darken(@group-border-color, 5%), 7%), -1px 0 0 0 @group-border-color!important;
 }
-.esgst-gv-icons .giveaway__column--whitelist {
+.esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--whitelist {
     box-shadow: 0 -1px 0 0 saturate(lighten(@whitelist-border-color, 7%), 12%), 0 1px 0 0 @whitelist-border-color, 1px 0 0 0 saturate(darken(@whitelist-border-color, 5%), 7%), -1px 0 0 0 @whitelist-border-color!important;
 }
-.esgst-gv-icons .giveaway__column--invite-only, .esgst-gv-icons .giveaway__column--region-restricted {
+.esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--invite-only, .esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--region-restricted {
     box-shadow: 0 -1px 0 0 lighten(@invite-border-color, 9%), -1px 0 0 0 @invite-border-color, 0 1px 0 0 darken(@invite-border-color, 15%), 1px 0 0 0 @invite-border-color!important;
 }
-.esgst-gv-icons .btn_action.green, .esgst-gv-icons .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight) {
+.esgst-gv-icons .btn_action.green, .esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).form__submit-button, .esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--contributor-level--positive:not(.esgst-glh-highlight) {
     box-shadow: 0 -1px 0 0 desaturate(lighten(@green-buttons-border-color, 16%), 15%), -1px 0 0 0 @green-buttons-border-color, 0 1px 0 0 spin(darken(@green-buttons-border-color, 4%), 4%), 1px 0 0 0 @green-buttons-border-color!important;
 }
-.esgst-gv-icons .btn_action.yellow {
+.esgst-gv-icons .btn_action.yellow, .esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).sidebar__entry-delete {
     box-shadow: 0 -1px 0 0 saturate(lighten(@yellow-buttons-border-color, 15%), 13%), -1px 0 0 0 @yellow-buttons-border-color, 0 1px 0 0 saturate(darken(@yellow-buttons-border-color, 17%), 15%), 1px 0 0 0 @yellow-buttons-border-color!important;
 }
-.esgst-gv-icons .btn_action.red, .esgst-gv-icons .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight) {
+.esgst-gv-icons .btn_action.red, .esgst-gv-icons :not(.esgst-button-set):not(.esgst-button-container).giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).sidebar__error {
     box-shadow: 0 -1px 0 0 saturate(lighten(@red-buttons-border-color, 17%), 20%), -1px 0 0 0 @red-buttons-border-color, 0 1px 0 0 saturate(darken(@red-buttons-border-color, 8%), 11%), 1px 0 0 0 @red-buttons-border-color!important;
 }
 .esgst-aic-right-button, .esgst-aic-left-button {
     filter: contrast(0.85);
+}
+.sidebar__entry-insert[style*="border-color: rgb(147, 187, 211)"] {
+    border-color: hsla(185,65%,48%,1) #3197a0 hsla(185,60%,36%,1) #3197a0!important;
 }
 .backgroundimage () when not (@body-bg-image = "none") {
     body .featured__outer-wrap.featured__outer-wrap--user, body .featured__outer-wrap.featured__outer-wrap--home, body .featured__outer-wrap.featured__outer-wrap--giveaway {
@@ -8051,6 +8174,30 @@ body .esgst-gv-icons .esgst-elgb-button {
 @ts-75: @ts-54;
 @ts-76: @ts-54;
 @ts-77: @ts-54;
+.sidebar__entry-insert, .form__submit-button[data-draggable-id="elgb"] {
+    background-image: var(--SGSP-enter-green-buttons-bg-color)!important;
+    color: var(--SGSP-enter-green-buttons-txt-color)!important;
+    border-color: spin(desaturate(lighten(@enter-green-buttons-bg-color, 25%), 13%), -4%) saturate(lighten(@enter-green-buttons-bg-color, 5%), 2%) spin(saturate(lighten(@enter-green-buttons-bg-color, 9%), 2%), -4%) saturate(lighten(@enter-green-buttons-bg-color, 5%), 2%)!important;
+}
+.sidebar__entry-delete {
+    background-image: var(--SGSP-enter-yellow-buttons-bg-color)!important;
+    color: var(--SGSP-enter-yellow-buttons-txt-color)!important;
+    border-color: spin(saturate(lighten(@enter-yellow-buttons-bg-color, 22%), 16%), -3%) spin(saturate(lighten(@enter-yellow-buttons-bg-color, 7%), 3%), -3%) spin(saturate(darken(@enter-yellow-buttons-bg-color, 10%), 17%), -3%) spin(saturate(lighten(@enter-yellow-buttons-bg-color, 7%), 3%), -3%)!important;
+}
+.sidebar__error {
+    background-image: var(--SGSP-enter-red-buttons-bg-color)!important;
+    color: var(--SGSP-enter-red-buttons-txt-color)!important;
+    border-color: saturate(lighten(@enter-red-buttons-bg-color, 32%), 11%) desaturate(lighten(@enter-red-buttons-bg-color, 15%), 9%) saturate(lighten(@enter-red-buttons-bg-color, 7%), 2%) desaturate(lighten(@enter-red-buttons-bg-color, 15%), 9%)!important;
+}
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).form__submit-button {
+    box-shadow: 0 -1px 0 0 spin(desaturate(lighten(@enter-green-buttons-bg-color, 25%), 13%), -4%), -1px 0 0 0 spin(saturate(lighten(@enter-green-buttons-bg-color, 9%), 2%), -4%), 0 1px 0 0 saturate(lighten(@enter-green-buttons-bg-color, 5%), 2%), 1px 0 0 0 spin(saturate(lighten(@enter-green-buttons-bg-color, 9%), 2%), -4%)!important;
+}
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).sidebar__entry-delete {
+    box-shadow: 0 -1px 0 0 spin(saturate(lighten(@enter-yellow-buttons-bg-color, 22%), 16%), -3%), -1px 0 0 0 spin(saturate(lighten(@enter-yellow-buttons-bg-color, 7%), 3%), -3%), 0 1px 0 0 spin(saturate(darken(@enter-yellow-buttons-bg-color, 10%), 17%), -3%), 1px 0 0 0 spin(saturate(lighten(@enter-yellow-buttons-bg-color, 7%), 3%), -3%)!important;
+}
+.esgst-gv-icons [data-draggable-id="elgb"]:not(.esgst-button-set):not(.esgst-button-container).sidebar__error {
+    box-shadow: 0 -1px 0 0 saturate(lighten(@enter-red-buttons-bg-color, 32%), 11%), -1px 0 0 0 desaturate(lighten(@enter-red-buttons-bg-color, 15%), 9%), 0 1px 0 0 saturate(lighten(@enter-red-buttons-bg-color, 7%), 2%), 1px 0 0 0 desaturate(lighten(@enter-red-buttons-bg-color, 15%), 9%)!important;
+}
 }
 @-moz-document url-prefix("https://www.steamgifts.com/discussions/bookmarked") {
 .esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
@@ -8064,12 +8211,6 @@ body .esgst-gv-icons .esgst-elgb-button {
     border-color: transparent!important;
     box-shadow: none!important;
 }
-.esgst-sync-area .notification {
-    margin-bottom: 10px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: 325px;
-}
 .esgst-sync-options .form__row__indent > div {
     margin-bottom: 3px;
 }
@@ -8082,9 +8223,6 @@ body .esgst-gv-icons .esgst-elgb-button {
 .widget-container > [data-esgst-popup] > .page__heading + .esgst-button-set {
     position: relative;
     top: 10px;
-}
-.widget-container > [data-esgst-popup] .page__heading > .page__heading__breadcrumbs {
-    margin-right: 0;
 }
 .widget-container > [data-esgst-popup] .page__heading > .page__heading__breadcrumbs + .esgst-button-set {
     margin-right: 0;
@@ -8117,12 +8255,12 @@ body .esgst-gv-icons .esgst-elgb-button {
 }
 .widget-container > [data-esgst-popup] > .page__heading + .esgst-button-group {
     background-image: var(--SGSP-pageheading-bg-color)!important;
+    background-repeat: no-repeat;
     border-radius: 0!important;
     border: 1px solid var(--SGSP-content-border-color)!important;
     border-bottom-right-radius: 4px!important;
+    border-left: none!important;
     border-top: none!important;
-    margin-left: -1px!important;
-    margin-right: -1px!important;
     padding: 4px!important;
     position: sticky;
     top: 0;
@@ -8199,6 +8337,11 @@ body .esgst-gv-icons .esgst-elgb-button {
 .widget-container > [data-esgst-popup] > .page__heading:first-child + div .esgst-button-set:first-child + div {
     margin: 10px;
 }
+.widget-container > [data-esgst-popup] > div > .esgst-text-left {
+    background-color: transparent!important;
+    border: none!important;
+    box-shadow: none!important;
+}
 }
 @-moz-document url-prefix("https://www.steamgifts.com/account/settings/profile?esgst=ged") {
 .widget-container > div > .page__heading:first-child {
@@ -8232,6 +8375,13 @@ body .esgst-gv-icons .esgst-elgb-button {
     top: 85px;
 }
 }
+@-moz-document url-prefix("https://www.steamgifts.com/account/settings/profile?esgst=gb") {
+.widget-container > [data-esgst-popup] > div > .esgst-text-left {
+    background-color: transparent!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+}
 @-moz-document domain("steamtrades.com") {
 .esgst-header-menu-button {
     border: none!important;
@@ -8250,7 +8400,7 @@ body .esgst-gv-icons .esgst-elgb-button {
     font: inherit;
     line-height: 1.5em;
 }
-.esgst-sync-frequency, .esgst-steam-api-key, .esgst-popup select:not(.esgst-auto-sync), .esgst-cfh-popout input {
+.esgst-sync-frequency, .esgst-steam-api-key, .esgst-cfh-popout input {
     padding: 5px 10px;
 }
 .esgst-sm-colors select {
