@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.2  2020-08-27 */
+  var css = `/* SGv2 Dark v1.6.2  2020-09-05 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -4337,7 +4337,7 @@ label.SGPP__settings-checkbox:before {
     overflow: hidden;
     padding-bottom: 15px!important;
 }
-.esgst-gv-view.pinned-giveaways__inner-wrap--minimized .giveaway__row-outer-wrap {
+.esgst-gv-view.pinned-giveaways__inner-wrap--minimized .giveaway__row-outer-wrap:not(.esgst-hidden) {
     display: inline-block!important;
 }
 .esgst-gv-view.pinned-giveaways__inner-wrap .giveaway__row-outer-wrap {
@@ -5371,7 +5371,6 @@ input:checked + .esgst-toggle-switch-slider {
 .esgst-tag, .esgst-gch-highlight {
     border: none!important;
     box-shadow: 0 0 0 1px #4b4b4b!important;
-    text-shadow: var(--SGSP-ts-61)!important;
     filter: initial!important;
 }
 .esgst-cfh-sr-summary {
