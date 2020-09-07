@@ -140,7 +140,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.2  2020-09-06 */
+/* SGv2 Dark v1.6.2  2020-09-05 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -6575,7 +6575,7 @@ input[placeholder="Filter features..."] {
     text-overflow: ellipsis;
     vertical-align: middle;
     white-space: nowrap;
-    max-width: 240px;
+    max-width: 265px;
     font-size: 15px;
 }
 .sidebar.esgst-ns .esgst-adots h3 {
