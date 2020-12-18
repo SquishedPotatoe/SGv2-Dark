@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.6.4
-// @version        1.6.4
+// @namespace      SGv2 Dark 1.6.5
+// @version        1.6.5
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.4  2020-12-12 */
+  var css = `/* SGv2 Dark v1.6.5  2020-12-17 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -7886,7 +7886,7 @@ input#SkipEnded {
     border: 1px solid var(--SGSP-content-border-color);
     height: 180px!important;
 }
-.giveaway_box_notification {
+.giveaway_box_notification, .giveaway_box_message {
     background-color: transparent!important;
     background-image: var(--SGSP-notification-yellow-bg-color)!important;
     border-color: var(--SGSP-notification-yellow-border-color)!important;
@@ -7902,11 +7902,14 @@ input#SkipEnded {
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0)), linear-gradient( rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%)!important;
     border: 1px solid var(--SGSP-content-border-color)!important;
 }
-.giveaway_box_notification > div a {
+.giveaway_box_notification > div a, .giveaway_box_message a {
     color: rgb(230, 113, 0)!important;
 }
 .giveaway_box, .giveaway_box_hero {
     filter: var(--SGSP-image-brightness);
+}
+.giveaway_box_list > .esgst-es-page-divider {
+    margin: 8px -10px -5px;
 }
 .giveaway_box_list .giveaway_box_container--unlocked {
     background-color: transparent!important;
@@ -7948,15 +7951,15 @@ script[src*="holiday"] + .widget-container--margin-top {
     margin: 0!important;
     padding: 0!important;
 }
-.giveaway_box_actions + div {
+.giveaway_box_actions + div:not(.giveaway_box_message) {
     margin: 0!important;
     will-change: unset!important;
     border: 1px solid var(--SGSP-content-border-color) !important;
     border-radius: 0 0 5px 5px!important;
 }
 .giveaway_box_action--peek {
-    background-color: #d2d6e0;
     background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
+    background-repeat: no-repeat;
     border-color: var(--SGSP-content-border-color);
     color: hsla(0, 0%, 80%, 0.9) !important;
     will-change: filter;
@@ -7975,7 +7978,6 @@ script[src*="holiday"] + .widget-container--margin-top {
     will-change: filter;
 }
 .giveaway_box_action--peeked {
-    background-color: #d2d6e0;
     background-image: linear-gradient(#33393e 0%, #212528 100%) !important;
     border: 1px solid var(--SGSP-content-border-color)!important;
     border-bottom: none!important;
