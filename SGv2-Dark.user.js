@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.7  2021-06-04 */
+  var css = `/* SGv2 Dark v1.6.7  2021-06-05 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -8006,7 +8006,7 @@ script[src*="holiday"] + .widget-container--margin-top {
     background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
     border-color: hsl(298deg 100% 67%) hsl(298deg 70% 59%) hsl(298deg 70% 59%) hsl(298deg 75% 55%)!important;
     color: hsl(300deg 100% 80%);
-    text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);   
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);   
 }
 .birthday_event {
     background-color: var(--SGSP-content-bg-color);

@@ -140,7 +140,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.7  2021-06-04 */
+/* SGv2 Dark v1.6.7  2021-06-05 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -8123,7 +8123,7 @@ script[src*="holiday"] + .widget-container--margin-top {
     background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
     border-color: hsl(298deg 100% 67%) hsl(298deg 70% 59%) hsl(298deg 70% 59%) hsl(298deg 75% 55%)!important;
     color: hsl(300deg 100% 80%);
-    text-shadow: 1px 1px 1px rgb(0 0 0 / 80%);   
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);   
 }
 .birthday_event {
     background-color: var(--SGSP-content-bg-color);
