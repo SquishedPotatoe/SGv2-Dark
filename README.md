@@ -1,10 +1,10 @@
 # SGv2-Dark
 
-SGv2 Dark style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.com](https://www.steamtrades.com), [sgtools.info](https://www.sgtools.info). Compatible with most scripts found in the [addon registry](https://www.steamgifts.com/discussion/Zevqn/)
+SGv2 Dark style for [steamgifts.com](https://www.steamgifts.com), [steamtrades.com](https://www.steamtrades.com), [sgtools.info](https://www.sgtools.info). Compatible with most scripts found in the [addon registry](https://gist.github.com/Sighery/99add4143d03eab994efc03776d13c03#file-sg-addons-thread-md)
 
 ---
  
-## Current Version 1.6.6
+## Current Version 1.6.7
 
 ## Preview
 ![Preview of SGv2 Dark](./screenshots/Giveaway.png)
