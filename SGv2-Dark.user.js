@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.6.7
-// @version        1.6.7
+// @namespace      SGv2 Dark 1.6.8
+// @version        1.6.8
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.7  2021-06-05 */
+  var css = `/* SGv2 Dark v1.6.8  2021-06-07 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -1292,7 +1292,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column:not(.featured__column--birthday) {
+.featured__column {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid rgba(0, 0, 0, 0.17);
@@ -2670,7 +2670,7 @@ div.sg-info {
     background-color: var(--SGSP-sidebar-bg-color);
     background-image: linear-gradient(hsl(0, 0%, 22%) 0, hsl(0, 0%, 17%) 6px, hsl(0, 0%, 7%) 100%);
     border: 1px solid;
-    border-color: hsl(0, 0%, 29%) hsl(0, 0%, 27%) hsl(0, 0%, 24%) hsl(0, 0%, 27%);;
+    border-color: hsl(0, 0%, 29%) hsl(0, 0%, 27%) hsl(0, 0%, 24%) hsl(0, 0%, 27%);
     border-radius: 4px;
     box-shadow: 1px 1px 0 hsla(0, 0%, 23%, 0.3) inset;
     margin-top: 5px;

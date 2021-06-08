@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SGv2 Dark
-@namespace      SGv2 Dark 1.6.7
-@version        1.6.7
+@namespace      SGv2 Dark 1.6.8
+@version        1.6.8
 @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -140,7 +140,7 @@
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.7  2021-06-05 */
+/* SGv2 Dark v1.6.8  2021-06-07 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -1413,7 +1413,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column:not(.featured__column--birthday) {
+.featured__column {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid rgba(0, 0, 0, 0.17);
@@ -2785,7 +2785,7 @@ div.sg-info {
 }
 .sidebar__navigation, #sidebar_sgpp_filters, .sgun_notes_panel, .sidebar_table, .esgst-ags-panel, .sidebar .esgst-adots {
     background-color: var(--SGSP-sidebar-bg-color);
-    background-image: linear-gradient(lighten(@sidebar-bg-color, 5%) 0, @sidebar-bg-color 6px, darken(@sidebar-bg-color, 9.5%) 100%);;
+    background-image: linear-gradient(lighten(@sidebar-bg-color, 5%) 0, @sidebar-bg-color 6px, darken(@sidebar-bg-color, 9.5%) 100%);
     border: 1px solid;
     border-color: lighten(@sidebar-border-color, 2%) @sidebar-border-color darken(@sidebar-border-color, 3%) @sidebar-border-color;
     border-radius: 4px;

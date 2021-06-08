@@ -1,5 +1,5 @@
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.6.7  2021-06-05 */
+/* SGv2 Dark v1.6.8  2021-06-07 */
 /* Repository: https://github.com/SquishedPotatoe/SG-Dark-Grey */
 /* License:    https://creativecommons.org/licenses/by-sa/4.0/ */
 :root {
@@ -1275,7 +1275,7 @@ div > .table__column--width-fill > form > strong {
 .featured__container {
     background-color: transparent;
 }
-.featured__column:not(.featured__column--birthday) {
+.featured__column {
     color: hsl(0, 0%, 65%);
     background-color: hsla(0, 0%, 0%, 0.09);
     border: 1px solid rgba(0, 0, 0, 0.17);
@@ -2653,7 +2653,7 @@ div.sg-info {
     background-color: var(--SGSP-sidebar-bg-color);
     background-image: linear-gradient(hsl(0, 0%, 22%) 0, hsl(0, 0%, 17%) 6px, hsl(0, 0%, 7%) 100%);
     border: 1px solid;
-    border-color: hsl(0, 0%, 29%) hsl(0, 0%, 27%) hsl(0, 0%, 24%) hsl(0, 0%, 27%);;
+    border-color: hsl(0, 0%, 29%) hsl(0, 0%, 27%) hsl(0, 0%, 24%) hsl(0, 0%, 27%);
     border-radius: 4px;
     box-shadow: 1px 1px 0 hsla(0, 0%, 23%, 0.3) inset;
     margin-top: 5px;
