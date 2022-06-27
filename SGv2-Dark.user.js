@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.6.9
-// @version        1.6.9
+// @namespace      SGv2 Dark 1.7.0
+// @version        1.7.0
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.6.9  2021-12-03 */
+  var css = `/* SGv2 Dark v1.7.0  2022-06-27 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -1714,6 +1714,81 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 #legend {
     margin-bottom: 40px;
 }
+.lightbox {
+    background-color: var(--SGSP-modal-bg-color)
+}
+.lightbox-content-image {
+    padding:12px;
+}
+.lightbox-content-image > video, .lightbox-content-image > iframe {
+    border : 1px solid var(--SGSP-image-border-color);
+    border-radius: 8px;
+    height: 99%;
+    width: unset;
+}
+.lightbox img, .lightbox-thumbnail {
+    border : 1px solid var(--SGSP-image-border-color);
+    filter: var(--SGSP-image-brightness);
+}
+.lightbox img, .lightbox-thumbnail, .lightbox-thumbnail-overlay {
+    border-radius: 6px;
+}
+.lightbox img {
+    border-radius: 8px;
+}
+.lightbox-thumbnail-overlay {
+    box-shadow: 0 0 0 8px hsla(113, 50%, 50%, 0.7) inset;
+    opacity: 0;
+    transform: scale(0, 0);
+    transition: all 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+} 
+.lightbox-thumbnail--selected > .lightbox-thumbnail-overlay {
+    border: none!important;
+    border-radius: 4px;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+.lightbox-header-icon--selected {
+    color: hsl(113, 50%, 50%);
+}
+.lightbox-header-description-name, .lightbox-header-description-count, .lightbox-header-icons, .lightbox-content-nav-btn-icon > i {
+    color: var(--SGSP-headings-size1-txt-color);
+    text-shadow: var(--SGSP-ts-5);
+}
+.lightbox-header-icon:hover, .lightbox-content-nav-btn:hover > .lightbox-content-nav-btn-icon > i {
+    color: var(--SGSP-headings-size1-txt-color);
+    filter: brightness(1.25);
+}
+.lightbox-content-nav-btn--next > .lightbox-content-nav-btn-icon {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: solid 1px var(--SGSP-content-border-color);
+    border-right:none;
+}
+.lightbox-content-nav-btn--prev > .lightbox-content-nav-btn-icon {
+    border: solid 1px var(--SGSP-content-border-color);
+    border-bottom-right-radius: 6px;
+    border-left:none;
+    border-top-right-radius: 6px;
+}
+.lightbox-header, .lightbox-footer-outer, .lightbox-content-nav-btn-icon {
+    background-color: var(--SGSP-body-bg-color);
+}
+.lightbox-footer-outer {
+    border-top: solid 1px var(--SGSP-content-border-color);
+}
+.lightbox-header {
+    border-bottom: solid 1px var(--SGSP-content-border-color);
+}
+.lightbox-footer-outer {
+    padding: 7px;
+}
+.lightbox-header-description-name, .lightbox-header-description-count {
+    padding: 10px 0;
+}
+.lightbox-header-icon {
+    padding: 10px;
+} 
 .markdown blockquote {
     background-color: var(--SGSP-quote-bg-color);
     border: 1px solid var(--SGSP-quote-border-color);
@@ -1891,6 +1966,17 @@ tbody tr:last-child td:last-child {
 }
 nav {
     padding: 0 25px;
+}
+.navigation .pagination > .page-item > .page-link {
+    background-image: var(--SGSP-pageheading-bg-color);
+    border: 1px solid var(--SGSP-pageheading-border-color)!important;
+    color: var(--SGSP-pageheading-txt-color)!important;
+}
+.navigation .pagination > .active > .page-link {
+    color: var(--SGSP-red-icons-txt-color)!important;
+}
+.navigation .pagination > .page-item:not(.active):not(.disabled) > .page-link:hover {
+    filter: brightness(0.85);
 }
 .nav__absolute-dropdown, .dropdown > div, .esgst-header-menu-absolute-dropdown, .esgst-header-menu-relative-dropdown > div {
     background-color: hsl(0, 0%, 21%)!important;
@@ -2957,6 +3043,10 @@ strong {
 }
 textarea {
     overflow: hidden;
+}
+textarea[name="have"], textarea[name="want"], textarea[name="description"] {
+    min-height: 100px;
+    max-height: 50vh;
 }
 .ui-widget {
     background: hsla(0, 0%, 0%, 0.13);
@@ -6219,9 +6309,6 @@ input[placeholder="Filter features..."] {
 .esgst-popup .table__row-outer-wrap.esgst-relative {
     padding: 10px 5px 10px 18px!important;
 }
-.esgst-cfh-panel ~ textarea {
-    overflow: unset;
-}
 .esgst-chfl-panel i:active {
     filter: brightness(0.65) contrast(0.85);
 }
@@ -6434,7 +6521,27 @@ input[placeholder="Filter features..."] {
     font-size: 14px!important;
 }
 .esgst-adots .homepage_table_column_heading {
-    max-width: unset;
+    max-width: 610px;
+}
+@media screen and (max-width: 1700px) {
+    .esgst-adots .homepage_table_column_heading {
+        max-width: 570px;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .esgst-adots .homepage_table_column_heading {
+        max-width: 510px;
+    }
+}
+@media screen and (max-width: 1500px) {
+    .esgst-adots .homepage_table_column_heading {
+        max-width: 470px;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .esgst-adots .homepage_table_column_heading {
+        max-width: 365px;
+    }
 }
 @media screen and (max-width: 1200px) {
     .esgst-adots .homepage_table_column_heading {
@@ -7738,18 +7845,24 @@ input#SkipEnded {
 #whitelist_ownership_checker.btnv6_blue_hoverfade {
     margin-right: 0.2em;
 }
+.wiki-gh-content .wiki-rightbar {
+    display: none;
+}
+.wiki-gh-content ::marker {
+    color: var(--SGSP-list-txt-color);
+}
 .wiki-gh-content .jumbotron {
     background-color: var(--SGSP-content-inner-bg-color);
     border: 1px solid var(--SGSP-content-inner-border-color);
+    border-radius: 4px;
+    padding: 1.5rem;
+}
+.wiki-gh-content .Box--condensed .Box-header {
+    background: none;
+    border: none;
 }
 .wiki-gh-content .jumbotron > h1:first-of-type {
-    margin-top: -20px;
-}
-.wiki-gh-content .mt-4 {
-    margin-top: 0!important;
-}
-.wiki-gh-content .markdown-body > *:first-child {
-    margin-top: 24px!important;
+    margin-top: -10px;
 }
 .wiki-gh-content table, .wiki-gh-content pre {
     margin: 10px 0;
@@ -8064,6 +8177,28 @@ script[src*="holiday"] + .widget-container--margin-top {
 }
 .esgst-gv-popout .giveaway__columns .giveaway__column--birthday i {
     font-size: 12px;
+}
+.esgst-text-left.markdown[style*="border-right"] {
+    border: none!important;
+    min-width: 310px;
+}
+.esgst-text-left.markdown[style*="border-right"] a {
+    padding-right: 8px;
+}
+.esgst-text-left.markdown[style*="border-right"] + .esgst-text-left.table {
+    background-color: var(--SGSP-content-bg-color);
+    border: 1px solid var(--SGSP-content-border-color);
+    border-radius: 4px;
+    height: max-content;
+    min-width: 383px;
+    max-width: 43%;
+    padding: 5px 10px!important;
+}
+.esgst-text-left.markdown[style*="border-right"] + .esgst-text-left.table > .table__heading {
+    justify-content: center;
+}
+.esgst-text-left.markdown[style*="border-right"] + .esgst-text-left.table .table__column--width-small {
+    text-align: center;
 }
 .esgst-ge-sgt-button > .form__submit-button {
     border-color: hsla(185, 65%, 48%, 1) #3197a0 hsla(185, 60%, 36%, 1) #3197a0!important;
