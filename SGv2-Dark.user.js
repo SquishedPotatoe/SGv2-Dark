@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.7.0
-// @version        1.7.0
+// @namespace      SGv2 Dark 1.7.1
+// @version        1.7.1
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.7.0  2022-06-27 */
+  var css = `/* SGv2 Dark v1.7.1  2022-12-04 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -1620,7 +1620,6 @@ header.small {
 #header {
     position: fixed;
     width: 100%;
-    min-width: 1100px;
     z-index: 1;
 }
 .header_search {
@@ -1741,7 +1740,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
     opacity: 0;
     transform: scale(0, 0);
     transition: all 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-} 
+}
 .lightbox-thumbnail--selected > .lightbox-thumbnail-overlay {
     border: none!important;
     border-radius: 4px;
@@ -1788,7 +1787,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 }
 .lightbox-header-icon {
     padding: 10px;
-} 
+}
 .markdown blockquote {
     background-color: var(--SGSP-quote-bg-color);
     border: 1px solid var(--SGSP-quote-border-color);
@@ -6521,32 +6520,7 @@ input[placeholder="Filter features..."] {
     font-size: 14px!important;
 }
 .esgst-adots .homepage_table_column_heading {
-    max-width: 610px;
-}
-@media screen and (max-width: 1700px) {
-    .esgst-adots .homepage_table_column_heading {
-        max-width: 570px;
-    }
-}
-@media screen and (max-width: 1600px) {
-    .esgst-adots .homepage_table_column_heading {
-        max-width: 510px;
-    }
-}
-@media screen and (max-width: 1500px) {
-    .esgst-adots .homepage_table_column_heading {
-        max-width: 470px;
-    }
-}
-@media screen and (max-width: 1400px) {
-    .esgst-adots .homepage_table_column_heading {
-        max-width: 365px;
-    }
-}
-@media screen and (max-width: 1200px) {
-    .esgst-adots .homepage_table_column_heading {
-        max-width: 275px;
-    }
+    max-width: 25vw;
 }
 .sidebar .esgst-float-right.sidebar__navigation__item__name {
     margin-right: 8px;
@@ -8032,6 +8006,32 @@ input#SkipEnded {
 .giveaway_box_notification > div a, .giveaway_box_message a {
     color: rgb(230, 113, 0)!important;
 }
+.cp-z-cursor {
+    border-color: transparent #000!important;
+}
+.cp-xy-cursor {
+    border-color: #000!important;
+}
+.cp-alpha-cursor {
+    border-color: hsla(0, 0%, 15%, 1) transparent!important;
+}
+.cp-alpha {
+    background: linear-gradient(to right, hsla(0, 0%, 15%, 1), hsla(0, 0%, 15%, 0));
+}
+.cp-color-picker {
+    border: 1px solid #000000;
+    background-image: linear-gradient(hsla(0, 0%, 15%, 1) 0%, hsla(0, 0%, 15%, 1) 100%);
+}
+.giveaway_box_color_outer {
+    background-color: var(--SGSP-input-bg-color);
+    border-color: var(--SGSP-input-border-color);
+}
+.giveaway_box_color_outer.is_inactive .giveaway_box_color_inner {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, var(--SGSP-input-bg-color) 5px, var(--SGSP-input-bg-color) 10px);
+}
+.giveaway_box_color_inner {
+    background-color: hsl(0, 0%, 33%);
+}
 .giveaway_box, .giveaway_box_hero {
     filter: var(--SGSP-image-brightness);
 }
@@ -8094,7 +8094,7 @@ script[src*="holiday"] + .widget-container--margin-top {
 .giveaway_box_action--peek:hover:not(.giveaway_box_action--disabled), .giveaway_box_action--like:hover:not(.is-selected) {
     background-image: linear-gradient(#33393e 0%, #212528 100%)!important;
     filter: brightness(1.1);
-}  
+}
 .giveaway_box_action--open {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
@@ -8126,13 +8126,13 @@ script[src*="holiday"] + .widget-container--margin-top {
     top: 22px;
 }
     /*  Ten years of Space Cat Event     */
-.giveaway__column--birthday, .featured__column--birthday {  
+.giveaway__column--birthday, .featured__column--birthday {
     background-image: linear-gradient(hsl(300deg 76% 40%) 0%, hsl(300deg 76% 32%) 100%);
     background-image: -moz-linear-gradient(hsl(300deg 76% 40%) 0%, hsl(300deg 76% 32%) 100%);
     background-image: -webkit-linear-gradient(hsl(300deg 76% 45%) 0%, hsl(300deg 76% 32%) 100%);
     border-color: hsl(298deg 100% 67%) hsl(298deg 70% 59%) hsl(298deg 70% 59%) hsl(298deg 75% 55%)!important;
     color: hsl(300deg 100% 80%);
-    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);   
+    text-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.8);
 }
 .birthday_event {
     background-color: var(--SGSP-content-bg-color);
