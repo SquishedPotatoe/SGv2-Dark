@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.7.9
-// @version        1.7.9
+// @namespace      SGv2 Dark 1.8.0
+// @version        1.8.0
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.7.9  2025-03-02 */
+  var css = `/* SGv2 Dark v1.8.0  2026-04-05 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -1273,7 +1273,6 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
 .header_search .description {
     color: var(--SGSP-general-txt-color);
     text-shadow: var(--SGSP-ts-54);
-    will-change: transform;
 }
 .comment__summary[style="opacity: 0.5;"] {
     opacity: 0.3!important;
@@ -1715,11 +1714,11 @@ h3.sidebar__heading {
     margin-top: 8px;
 }
 :is(:autofill) {
-    box-shadow: 0 0 0px 40rem #333 inset !important;
+    box-shadow: 0 0 0px 40rem #333 inset!important;
     caret-color: hsla(0, 0%, 65%, 0.8);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: hsla(0, 0%, 65%, 0.8) !important;
+    -webkit-text-fill-color: hsla(0, 0%, 65%, 0.8)!important;
     transition: background-color 5000s ease-in-out 0s;
 }
 input {
@@ -3026,9 +3025,6 @@ a.sidebar__navigation__item__link.expired:not(.sidebar__navigation__item__underl
     background-color: hsl(0, 0%, 28%)!important;
     border-color: hsla(0, 0%, 0%, 0.7)!important;
 }
-.sp-button-container {
-    will-change: transform;
-}
 .sp-picker-container {
     border-left: 1px solid hsl(0, 0%, 29%);
 }
@@ -3570,7 +3566,6 @@ div.sgun_note:first-of-type {
     background-color: var(--SGSP-body-bg-color)!important;
     border: 1px solid var(--SGSP-content-border-color)!important;
     filter: brightness(1.15);
-    will-change: transform;
 }
 .esgst-popup > .popup_summary > .popup_icon {
     margin-right: 0;
@@ -3685,9 +3680,6 @@ div.sgun_note:first-of-type {
 .esgst-gc:not(.giveaway__column):not(.featured__column) {
     box-shadow: 0 0 0 1px #000;
     margin: 2px!important;
-}
-.esgst-es-pause-button .fa-play, .esgst-checkbox .fa-square-o {
-    width: 12px;
 }
 .pagination strong {
     filter: initial!important;
@@ -4651,9 +4643,6 @@ label.SGPP__settings-checkbox:before {
 .widget-container > div:not(:first-child)[style*="230px"] {
     margin-left: 231px!important;
 }
-.esgst-fs, .esgst-fh, .nav__left-container, .nav__right-container, #footer, footer {
-    will-change: transform;
-}
 .esgst-fh, .nav__left-container, .nav__right-container, .esgst-qgs-container {
     z-index: 1000!important;
 }
@@ -5041,12 +5030,8 @@ label.SGPP__settings-checkbox:before {
 .nav__left-container .esgst-ags-panel.esgst-popout {
     margin-top: 0!important;
 }
-.esgst-ags-panel {
-    max-width: 324px!important;
-}
 .esgst-ags-filter > * {
-    width: 145px!important;
-    height: 20px;
+    height: 25px;
 }
 .esgst-ags-checkbox-filter {
     padding: 0px 14px;
@@ -5227,7 +5212,7 @@ label.SGPP__settings-checkbox:before {
     opacity: initial;
 }
 .esgst-gv-container .giveaway__icon {
-    line-height: 16px;
+    height: 14px;
     text-shadow: var(--SGSP-ts-6);
 }
 .esgst-gv-popout .giveaway__links i {
@@ -5256,9 +5241,6 @@ input:checked + .esgst-toggle-switch-slider {
 }
 .esgst-toggle-switch-container:not(.inline) {
     margin: 3px!important;
-}
-.esgst-last-sync {
-    will-change: transform;
 }
 .esgst-uh-title, .esgst-uh-list {
     color: hsla(0, 0%, 75%, 0.95)!important;
@@ -5297,6 +5279,9 @@ input:checked + .esgst-toggle-switch-slider {
 }
 .esgst-popup li:before {
     margin: 0 0 0 -20px!important;
+}
+.esgst-hwlc-panel li:before {
+    margin: 0px 0 0 -3px!important;
 }
 .esgst-header-menu-button {
     background-image: var(--SGSP-nav-button-bg-color)!important;
@@ -5925,7 +5910,6 @@ input:checked + .esgst-toggle-switch-slider {
 }
 .esgst-es-page-divisor, .esgst-es-page-divider {
     margin: -1px -10px 5px;
-    will-change: transform;
 }
 .esgst-gv-view .esgst-es-page-divisor, .esgst-gv-view .esgst-es-page-divider {
     margin: 5px 0;
@@ -5946,6 +5930,10 @@ input:checked + .esgst-toggle-switch-slider {
     font-size: 12px;
     margin: 1px!important;
     padding: 0;
+}
+.esgst-tag-list.popup__keys__list {
+    margin-top: 10px!important;
+    text-shadow: none;
 }
 .esgst-hidden-buttons {
     background-color: var(--SGSP-body-bg-color)!important;
@@ -6093,6 +6081,7 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
 .esgst-qgs-container {
     background-color: var(--SGSP-input-bg-color)!important;
     border-color: var(--SGSP-input-border-color)!important;
+    box-shadow: 0 0 0 1px hsl(0, 0%, 0%);
     margin: -1px 5px -1px 0;
     padding: 8px 10px 7px 10px;
 }
@@ -6106,6 +6095,10 @@ input[type=date]::-webkit-calendar-picker-indicator:hover {
 }
 .esgst-qgs-container-expanded {
     top: 0;
+}
+.esgst-qgs-container-expanded .esgst-qgs-input
+{
+    margin: -1px 0 -1px -1px;
 }
 .esgst-ggl-heading, .esgst-cl_gc-heading, .esgst-cl_ge-heading {
     color: var(--SGSP-headings-txt-color);
@@ -7006,7 +6999,6 @@ input[placeholder="Filter features..."] {
     vertical-align: middle;
 }
 .esgst-gv-popout .giveaway__heading [data-draggable-id]:not(.esgst-gc) i, .esgst-gv-popout .giveaway__heading > [data-ui-tooltip] i {
-    vertical-align: baseline;
     width: 12px;
 }
 .esgst-gv-popout .giveaway__heading [data-draggable-id] i, .esgst-gv-popout .giveaway__heading [data-draggable-id="hideGame"], .esgst-gv-popout .esgst-gv-creator [data-draggable-id] i, .esgst-gv-popout .esgst-gv-creator [data-draggable-id="hideGame"], .esgst-gv-popout .giveaway__heading [data-lightbox-id], .esgst-gv-popout .giveaway__heading > [data-ui-tooltip] i {
@@ -7375,7 +7367,7 @@ input[placeholder="Filter features..."] {
     font-size: 12px;
 }
 .esgst-tds-button, .esgst-gdttt-button {
-    margin: 0 0 0 3px !important;
+    margin: 0 0 0 3px!important;
 }
 .esgst-tds-button.page_heading_btn, .esgst-gdttt-button.page_heading_btn {
     margin: 0!important;
@@ -8062,20 +8054,6 @@ input#SkipEnded {
 .wiki-gh-content .markdown-body .highlight > pre {
     color: var(--SGSP-general-txt-color);
 }
-.page__heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-popup-actions):not(.esgst-fmph):not(.giveaway_box_actions), .page_heading ~ div:not(.comments):not(.esgst-rbot):not(.esgst-fmph), .pinned-giveaways__outer-wrap {
-    will-change: transform;
-}
-.page__heading ~ div:hover:not(.sg2o-gridview-container), .page_heading ~ div:hover, .pinned-giveaways__outer-wrap:hover, .page_inner_wrap.medium .page_heading ~ div {
-    will-change: unset!important;
-}
-.page__heading ~ div:hover .table__rows, .page__heading ~ div:hover .giveaway__row-outer-wrap:not(.esgst-gv-container), .pinned-giveaways__outer-wrap:hover .giveaway__summary {
-    will-change: transform!important;
-}
-@media (min--moz-device-pixel-ratio: 0) and (display-mode: browser), (min--moz-device-pixel-ratio: 0) and (display-mode: fullscreen) {
-    .page__heading ~ div:not(.comments), .page_heading ~ div:not(.comments), .pinned-giveaways__outer-wrap, .page__heading ~ div:hover .table__rows, .page__heading ~ div:hover .giveaway__row-outer-wrap:not(.esgst-gv-container), .pinned-giveaways__outer-wrap:hover .giveaway__summary {
-        will-change: unset!important;
-    }
-}
     /*  Holiday Gift Box Event     */
 .giveaway_box_hero {
     background-position: center -80px!important;
@@ -8366,7 +8344,7 @@ script[src*="holiday"] + .widget-container--margin-top {
     margin: auto 3px auto 3px!important;
 }
 i.swi {
-    text-shadow: none !important;
+    text-shadow: none!important;
 }
 [id*="ggdeals_app_btn"] img {
     margin: 0;
@@ -8775,10 +8753,17 @@ header[data-esgst-parsed] nav .nav_btns .nav_btn_container + .nav_btn_container#
 }
 header ~ .esgst-popup-layer .esgst-popup .esgst-button i:nth-of-type(2) {
     margin-left: 3px;
-}   
+}
 header ~ .esgst-popup-layer .esgst-menu-layer .esgst-button-group i {
     margin-right: 3px;
-} 
+}
+.esgst-popup .sidebar__search-container input {
+    border: none;
+    padding: 5px 10px;
+}
+#esgst-esResume .fa-play {
+    margin-left: 0;
+}
 `;
   };
   if (window.location.pathname.match(/^\/sgpp/)) {
