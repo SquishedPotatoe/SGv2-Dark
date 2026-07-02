@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SGv2 Dark
-@namespace      SGv2 Dark 1.8.3
-@version        1.8.3
+@namespace      SGv2 Dark 1.8.4
+@version        1.8.4
 @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -38,6 +38,7 @@
 @var color content-border-color "Content Border" hsla(60,2%,23%,1)
 @var color content-inner-bg-color "Content Inner Background" hsla(60,12%,0%,0.2)
 @var color content-inner-border-color "Content Inner Border" hsla(60,12%,0%,0.35)
+@var range comment-avatar-size "Comment Avatar Size" [32, 0, 64, 1, "px"]
 @var color enter-green-buttons-bg-color "Enter Buttons Green" hsla(91, 61%, 28%, 1)
 @var color enter-red-buttons-bg-color "Enter Buttons Red" hsla(0, 55%, 35%, 1)
 @var color enter-yellow-buttons-bg-color "Enter Buttons Yellow" hsla(57, 59%, 50%, 1)
@@ -142,13 +143,14 @@
 @var color tooltip-border-color "Tooltip Border" hsla(0, 0%, 25%, 1)
 @var color tooltip-txt-color "Tooltip Text" #a0a0a0
 @var color visited-txt-color "Visited Link" hsl(90, 35%, 52%)
+@var color visited-other-txt-color "Visited Other Link" rgb(97, 158, 192)
 @var color whitelist-bg-color "Whitelist Background" rgb(49, 151, 160)
 @var color whitelist-border-color "Whitelist Border" hsl(185, 53%, 41%)
 @var color yellow-buttons-bg-color "Yellow Buttons" hsla(57,59%,50%,1)
 @var color yellow-buttons-border-color "Yellow Buttons Border" hsl(60, 62%, 57%)
 ==/UserStyle== */
 @-moz-document domain("steamgifts.com"), domain("steamtrades.com"), domain("sgtools.info") {
-/* SGv2 Dark v1.8.3  2026-06-10 */
+/* SGv2 Dark v1.8.4  2026-07-01 */
 :root {
   --SGSP-body-bg-color: @body-bg-color;
   --SGSP-body-bg-image: @body-bg-image;
@@ -167,6 +169,7 @@
   --SGSP-content-border-color: @content-border-color;
   --SGSP-content-inner-bg-color: @content-inner-bg-color;
   --SGSP-content-inner-border-color: @content-inner-border-color;
+  --SGSP-comment-avatar-size: @comment-avatar-size;
   --SGSP-enter-green-buttons-bg-color: linear-gradient(desaturate(lighten(@enter-green-buttons-bg-color, 13%), 24%) 0%, @enter-green-buttons-bg-color 50%, spin(saturate(darken(@enter-green-buttons-bg-color, 11%), 7%), -3%) 100%);  
   --SGSP-enter-green-buttons-txt-color: spin(desaturate(lighten(@enter-green-buttons-bg-color, 52%), 15%), 3%);
   --SGSP-enter-red-buttons-bg-color: linear-gradient(desaturate(lighten(@enter-red-buttons-bg-color, 10%), 11%) 0%, @enter-red-buttons-bg-color 50%, saturate(darken(@enter-red-buttons-bg-color, 11%), 19%) 100%);
@@ -293,6 +296,7 @@
   --SGSP-trade-want-border-color: lighten(saturate(@trade-want-bg-color, 35%), 30%);
   --SGSP-trade-want-title-color: lighten(saturate(fadein(@trade-want-bg-color, 30%), 43%), 28%);
   --SGSP-visited-txt-color: @visited-txt-color;
+  --SGSP-visited-other-txt-color: @visited-other-txt-color;
   --SGSP-whitelist-bg-color: linear-gradient(@whitelist-bg-color 0%, saturate(darken(@whitelist-bg-color, 20%), 14%) 100%);
   --SGSP-whitelist-border-color: @whitelist-border-color;
   --SGSP-whitelist-txt-color: saturate(lighten(@whitelist-bg-color, 20%), 10%);
@@ -1417,6 +1421,10 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
 .comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__username--permalink a, a.author_name.is_op:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
     color: #BBBBBB!important;
     text-shadow: var(--SGSP-ts-43)!important;
+}
+.comment .global__image-outer-wrap--avatar-small {
+    height: var(--SGSP-comment-avatar-size);
+    width: var(--SGSP-comment-avatar-size);
 }
 .comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
     text-shadow: var(--SGSP-ts-43)!important;
@@ -4032,7 +4040,7 @@ div.sgun_note:first-of-type {
 .ui-slider-float .ui-slider-tip:after, .ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
     border-top-color: #2f2f2f!important;
 }
-.sidebar__navigation:last-of-type + div:not(.floating-pagination):not(.sidebar__subscribed) + div:not(.floating-pagination):not(.sidebar__subscribed) {
+div:has(> .sidebar__heading):has(#sg2o-level-slider) {
     background-color: var(--SGSP-sidebar-bg-color);
     border: 1px solid var(--SGSP-sidebar-border-color);
     border-radius: 4px;
@@ -4040,6 +4048,10 @@ div.sgun_note:first-of-type {
     margin-top: 28px;
     padding: 10px 20px 5px;
     text-shadow: var(--SGSP-ts-41);
+}
+.sidebar:has(#sg2o-level-slider) {
+    width:300px;
+    min-width: 300px;
 }
 .sidebar__navigation:last-of-type + div:not(.floating-pagination)[style^="padding-top: 10px"] {
     background-image: none;
@@ -4050,10 +4062,10 @@ div.sgun_note:first-of-type {
 .sidebar__navigation:last-of-type + div:not(.floating-pagination), .sidebar__subscribed, .sidebar__unsubscribed {
     margin-top: 15px;
 }
-.sidebar__navigation:last-of-type + div > div:not(#np_steamgifts_giveaway_top_responsive):not(#np_steamgifts_homepage_top_responsive) {
+.div:has(> .sidebar__heading):has(#sg2o-level-slider) > h3 ~ div{
     text-indent: 10px;
 }
-.sidebar__navigation:last-of-type + div:not(.sidebar__subscribed) h3 {
+div:has(> .sidebar__heading):has(#sg2o-level-slider) h3 {
     margin-left: -20px;
     margin-top: -30px;
     padding-bottom: 18px;
@@ -4759,7 +4771,7 @@ label.SGPP__settings-checkbox:before {
 .esgst-giveaway-panel.giveaway__columns {
     margin: 5px 0 -4px!important;
 }
-.esgst-gv-container {
+.esgst-gv-container:not(.esgst-cgb) {
     background: linear-gradient(desaturate(lighten(overlay(@content-bg-color, @body-bg-color), 3.5%), 1%) 0%, desaturate(lighten(overlay(@content-bg-color, @body-bg-color), 3.5%), 1%) 100%)!important;
     border-radius: 4px;
     padding: 0!important;
@@ -5467,6 +5479,9 @@ input:checked + .esgst-toggle-switch-slider {
 .esgst-adots h3 a:visited {
     color: var(--SGSP-visited-txt-color)!important;
 }
+.markdown a:visited:not(.esgst-gc) {
+    color: var(--SGSP-visited-other-txt-color)!important;
+}
 .esgst-adots .table__row-outer-wrap {
     padding: 10px 0!important;
 }
@@ -5769,6 +5784,12 @@ input:checked + .esgst-toggle-switch-slider {
     font-size: 14px;
     vertical-align: baseline;
 }
+.esgst-gf-left-panel .esgst-clickable:has(.fa-book) {
+    width: 60px;
+}
+.esgst-gf-left-panel:has(.esgst-gf-advanced-filters.esgst-hidden) .esgst-clickable:has(.fa-book) {
+    display: none;
+}
 .esgst-gf-boolean-filters > *, .esgst-gf-string-filters > div:not(.esgst-gf-legend-panel) > span, .esgst-settings-menu .esgst-notification-warning {
     margin-right: 5px;
 }
@@ -5858,6 +5879,7 @@ input:checked + .esgst-toggle-switch-slider {
     text-shadow: var(--SGSP-ts-74);
 }
 .ui-tooltip, .b-modal, .b-modal + .popup {
+    contain: paint;
     z-index: 99999!important;
 }
 .form__rows > .esgst-button-set {
@@ -6689,6 +6711,10 @@ input[placeholder="Filter features..."] {
 }
 .esgst-popup-scrollable .esgst-gf-container, .esgst-popup-scrollable .page__heading {
     top: 0;
+}
+.page__heading:has(+ .esgst-gf-container)::after {
+    bottom: 0;
+    height: 0;
 }
 #esgst-rbp .fa-comment {
     font-size: 14px!important;

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.8.3
-// @version        1.8.3
+// @namespace      SGv2 Dark 1.8.4
+// @version        1.8.4
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.8.3  2026-06-10 */
+  var css = `/* SGv2 Dark v1.8.4  2026-07-01 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -37,6 +37,7 @@ function addCss() {
   --SGSP-content-border-color: #3c3c39;
   --SGSP-content-inner-bg-color: rgba(0, 0, 0, 0.2);
   --SGSP-content-inner-border-color: hsla(60,12%,0%,0.35);
+  --SGSP-comment-avatar-size: 32px;
   --SGSP-enter-green-buttons-bg-color: linear-gradient(#678f42 0%, #46731c 50%, #2d490e 100%);
   --SGSP-enter-green-buttons-txt-color: #c9e3b5;
   --SGSP-enter-red-buttons-bg-color: linear-gradient(#a54040 0%, #8a2828 50%, #6a1010 100%);
@@ -163,6 +164,7 @@ function addCss() {
   --SGSP-trade-want-border-color: rgba(112, 206, 209, 0.37);
   --SGSP-trade-want-title-color: rgba(96, 211, 215, 0.67);
   --SGSP-visited-txt-color: hsl(90, 35%, 52%);
+  --SGSP-visited-other-txt-color: #619ec0;
   --SGSP-whitelist-bg-color: linear-gradient(#3197a0 0%, #125459 100%);
   --SGSP-whitelist-border-color: #3197a0;
   --SGSP-whitelist-txt-color: #5dd0da;
@@ -1288,6 +1290,10 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
 .comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__username--permalink a, a.author_name.is_op:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
     color: #BBBBBB!important;
     text-shadow: var(--SGSP-ts-43)!important;
+}
+.comment .global__image-outer-wrap--avatar-small {
+    height: var(--SGSP-comment-avatar-size);
+    width: var(--SGSP-comment-avatar-size);
 }
 .comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
     text-shadow: var(--SGSP-ts-43)!important;
@@ -3907,7 +3913,7 @@ div.sgun_note:first-of-type {
 .ui-slider-float .ui-slider-tip:after, .ui-slider-float .ui-slider-pip .ui-slider-tip-label:after {
     border-top-color: #2f2f2f!important;
 }
-.sidebar__navigation:last-of-type + div:not(.floating-pagination):not(.sidebar__subscribed) + div:not(.floating-pagination):not(.sidebar__subscribed) {
+div:has(> .sidebar__heading):has(#sg2o-level-slider) {
     background-color: var(--SGSP-sidebar-bg-color);
     border: 1px solid var(--SGSP-sidebar-border-color);
     border-radius: 4px;
@@ -3915,6 +3921,10 @@ div.sgun_note:first-of-type {
     margin-top: 28px;
     padding: 10px 20px 5px;
     text-shadow: var(--SGSP-ts-41);
+}
+.sidebar:has(#sg2o-level-slider) {
+    width:300px;
+    min-width: 300px;
 }
 .sidebar__navigation:last-of-type + div:not(.floating-pagination)[style^="padding-top: 10px"] {
     background-image: none;
@@ -3925,10 +3935,10 @@ div.sgun_note:first-of-type {
 .sidebar__navigation:last-of-type + div:not(.floating-pagination), .sidebar__subscribed, .sidebar__unsubscribed {
     margin-top: 15px;
 }
-.sidebar__navigation:last-of-type + div > div:not(#np_steamgifts_giveaway_top_responsive):not(#np_steamgifts_homepage_top_responsive) {
+.div:has(> .sidebar__heading):has(#sg2o-level-slider) > h3 ~ div{
     text-indent: 10px;
 }
-.sidebar__navigation:last-of-type + div:not(.sidebar__subscribed) h3 {
+div:has(> .sidebar__heading):has(#sg2o-level-slider) h3 {
     margin-left: -20px;
     margin-top: -30px;
     padding-bottom: 18px;
@@ -4634,7 +4644,7 @@ label.SGPP__settings-checkbox:before {
 .esgst-giveaway-panel.giveaway__columns {
     margin: 5px 0 -4px!important;
 }
-.esgst-gv-container {
+.esgst-gv-container:not(.esgst-cgb) {
     background: linear-gradient(#0d0d09 0%, #0d0d09 100%)!important;
     border-radius: 4px;
     padding: 0!important;
@@ -5342,6 +5352,9 @@ input:checked + .esgst-toggle-switch-slider {
 .esgst-adots h3 a:visited {
     color: var(--SGSP-visited-txt-color)!important;
 }
+.markdown a:visited:not(.esgst-gc) {
+    color: var(--SGSP-visited-other-txt-color)!important;
+}
 .esgst-adots .table__row-outer-wrap {
     padding: 10px 0!important;
 }
@@ -5644,6 +5657,12 @@ input:checked + .esgst-toggle-switch-slider {
     font-size: 14px;
     vertical-align: baseline;
 }
+.esgst-gf-left-panel .esgst-clickable:has(.fa-book) {
+    width: 60px;
+}
+.esgst-gf-left-panel:has(.esgst-gf-advanced-filters.esgst-hidden) .esgst-clickable:has(.fa-book) {
+    display: none;
+}
 .esgst-gf-boolean-filters > *, .esgst-gf-string-filters > div:not(.esgst-gf-legend-panel) > span, .esgst-settings-menu .esgst-notification-warning {
     margin-right: 5px;
 }
@@ -5733,6 +5752,7 @@ input:checked + .esgst-toggle-switch-slider {
     text-shadow: var(--SGSP-ts-74);
 }
 .ui-tooltip, .b-modal, .b-modal + .popup {
+    contain: paint;
     z-index: 99999!important;
 }
 .form__rows > .esgst-button-set {
@@ -6564,6 +6584,10 @@ input[placeholder="Filter features..."] {
 }
 .esgst-popup-scrollable .esgst-gf-container, .esgst-popup-scrollable .page__heading {
     top: 0;
+}
+.page__heading:has(+ .esgst-gf-container)::after {
+    bottom: 0;
+    height: 0;
 }
 #esgst-rbp .fa-comment {
     font-size: 14px!important;
