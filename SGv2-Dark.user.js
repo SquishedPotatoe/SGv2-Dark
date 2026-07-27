@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.8.4
-// @version        1.8.4
+// @namespace      SGv2 Dark 1.8.5
+// @version        1.8.5
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.8.4  2026-07-01 */
+  var css = `/* SGv2 Dark v1.8.5  2026-07-26 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -106,7 +106,6 @@ function addCss() {
   --SGSP-notification-yellow-txt-color: rgba(230, 233, 165, 0.9) !important;
   --SGSP-page-width: 100%;
   --SGSP-page-width-st: 100%;
-  --SGSP-page-width-sgt: 100%;
   --SGSP-pageheading-bg-color: linear-gradient(#3b3b3b 0%, #191515 100%);
   --SGSP-pageheading-border-color: #575757 #4a4a4a #3b3b3b #4a4a4a;
   --SGSP-pageheading-txt-color: hsla(202, 62%, 67%, 1);
@@ -129,12 +128,11 @@ function addCss() {
   --SGSP-red-suspension-top-bg-color: linear-gradient(#a54040 0%, #8a2828 80%, #6a1010 200%);
   --SGSP-red-icons-txt-color: hsla(0, 80%, 60%, 1);
   --SGSP-reply-bg-color: hsla(180,3%,13%,1);
-  --SGSP-reply-border-color: hsla(180,10%,28%,1);
+  --SGSP-reply-border-color: hsla(180, 10%, 28%, 1);
   --SGSP-row-hover-color: brightness(1.25);
   --SGSP-scrollbar-bg-color: hsla(0, 0%, 10%, 1);
   --SGSP-scrollbar-hover-bg-color: #303030;
-  --SGSP-scrollbar-thumb-bg-color: #262626;
-  scrollbar-color: #262626 hsla(0, 0%, 10%, 1);
+  --SGSP-scrollbar-thumb-bg-color: hsl(0, 0%, 15%);
   --SGSP-secondary-txt-color: #808d9d;
   --SGSP-select-highlight-color: hsl(91, 45%, 38%);
   --SGSP-select-highlight-bg-color: hsla(0, 0%, 43%, 0.5);
@@ -265,7 +263,14 @@ function addCss() {
   --SGSP-ts-76: 1px 1px #000000;
   --SGSP-ts-77: 1px 1px #000000;
 }
-
+@supports not selector(::-webkit-scrollbar) {
+    :root {
+        scrollbar-color: hsl(0, 0%, 15%) hsla(0, 0%, 10%, 1);
+    }
+    input {
+        color-scheme: dark;
+    }
+}
 html, [data-esgst-action] {
     background-color: var(--SGSP-body-bg-color)!important;
 }
@@ -273,7 +278,7 @@ body {
     background-color: transparent!important;
     background-image: none;
 }
-.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, #content button[type="submit"], #content #activated_send, #content #real_cv_send, #content #multiple_wins_send, #content #giveaway_Create, .entry.validEntry, #content .rulePassed, .btn_action.green, #content .manageGa a, #content #gaurl a, #content .back-guide a, #content .gaButton, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .cmGame:not(.notFound), .cmGame.whitelisted, #content .showBundledDeals, #content #giveaway_filters_Update, .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, #content .deal_game_discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .show-hide-giveaway-list.small-colored, .table__column__key__redeem, .birthday_event_btn--light, .fanatical_savings, .fanatical_pricing, .bundle_pricing {
+.sidebar__entry-insert, .sidebar__action-button, .nav__sits, .form__submit-button, .form__sync-default, .featured__action-button, .entry.validEntry, .btn_action.green, .giveaway__column--contributor-level--positive:not(.esgst-glh-highlight), .featured__column--contributor-level--positive:not(.esgst-glh-highlight), .page__heading__button--green, .page_heading_btn.green, .sale-savings--high, .offer__discount, .btn-success, #btn-get, .esgst-sttb-button, .esgst-stbb-button, .table__column__key__redeem, .birthday_event_btn--light, .fanatical_savings, .fanatical_pricing, .bundle_pricing {
     background-image: var(--SGSP-green-buttons-bg-color)!important;
     background-color: transparent!important;
     border: 1px solid #000!important;
@@ -284,28 +289,9 @@ body {
     transition: filter 0.35s ease-in;
     will-change: filter;
 }
-#content #gaurl a {
-    background-repeat: no-repeat;
-    padding: 9px 36px 10px!important;
-}
-#content .center.left p:last-of-type {
-    margin-top: 20px;
-}
-#content .game_deal_wrapper:last-of-type, #help ~ .featured__outer-wrap:last-of-type, .esgst-cfh-preview {
-    margin-bottom: 25px;
-}
-#content .pagination {
-    border: none!important;
-    box-shadow: none!important;
-}
 .nav_btn:not(.is_selected) .message_count, .nav__button .nav__notification {
     transition: filter 0.35s ease-in;
     will-change: filter;
-}
-#content .rulePassed {
-    border-radius: 4px;
-    cursor: default;
-    filter: saturate(2);
 }
 #dateBtn {
     margin-top: 15px;
@@ -371,10 +357,6 @@ blockquote::after {
 .chart__subheading__green {
     color: #80cc33;
 }
-.chart:nth-of-type(even):not(#cvChartContainer), #charts, div#GaFormRealCV, div#GaFormRules, div#GaFormMisc, div#GaFormAdvanced, .creatorTools, .modTools, .cmGame.notFound {
-    background-color: var(--SGSP-content-inner-bg-color);
-    border: 1px solid var(--SGSP-content-inner-border-color);
-}
 .chart--genre > .highcharts-container, .chart--giveaways-created > .highcharts-container, .chart--price > .highcharts-container {
     right: 4px;
 }
@@ -391,512 +373,12 @@ blockquote::after {
 .highcharts-tooltip p[style*="rgba(98, 134, 211, 0.5)"] {
     color: rgba(160, 160, 160, 0.85)!important;
 }
-#charts {
-    border-radius: 8px;
-    display: flex;
-    height: 340px!important;
-    padding-top: 25px;
-}
-#charts + .separator:before {
-    content: "Breakdown statistics";
-    color: hsl(213, 19%, 63%);
-    display: flex;
-    font-size: 24px;
-    font-weight: bold;
-    justify-content: center;
-    text-shadow: var(--SGSP-ts-57);
-    position: relative;
-    bottom: 335px;
-}
-#content #charts h2.center, #content .sidebar__navigation:last-of-type + div, img[title*="Extended Steamgifts"] {
-    display: none;
-}
-#content .sidebar--wide {
-    min-width: inherit!important;
-}
-#content .sidebar__navigation {
-    margin-top: 5px;
-    padding: 4px;
-}
-#content .sidebar a {
-    border: 1px solid transparent!important;
-}
-#content .sidebar__navigation__item__link:hover {
-    background-image: var(--SGSP-sidebar-link-bg-color);
-    border: 1px solid!important;
-    border-color: var(--SGSP-sidebar-link-border-color)!important;
-}
-#content .deal_game_image.global__image-outer-wrap {
-    padding: 4px 4px 1px;
-}
-#content .deal_game_image img:not([src*="http"]) {
-    min-width: 150px;
-}
-#content a.game_deal_wrapper.bundled {
-    background-color: hsla(0, 60%, 31%, 0.2);
-    border-color: hsla(0, 60%, 45%, 0.2)!important;
-}
-#content .game_deal_wrapper .deal_game_price {
-    width: 100px;
-}
-#content .game_deal_wrapper .deal_game_title {
-    font-size: 17px;
-    margin-bottom: -10px;
-}
-#content .deal_game_discount {
-    font-size: 16px;
-}
-#content #keySellers, #content #resellers {
-    margin-bottom: 15px;
-}
-#content .discount_percentage {
-    color: var(--SGSP-green-buttons-txt-color)!important;
-}
-#content .store-entry .discount_percentage {
-    color: hsl(94, 27%, 55%);
-}
-#content .discount_original_price {
-    color: var(--SGSP-general-txt-color);
-    opacity: 0.6;
-}
-#content .stores h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-#content .fa-spinner {
-    text-indent: 0;
-}
-#content .chart {
-    width: 254px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.left .chart > div {
-    left: 15px;
-}
-#charts svg {
-    filter: brightness(80%);
-}
-#charts svg rect {
-    fill: hsla(0, 0%, 0%, 0);
-}
-#content g path[fill="#cccccc"], #content g path[FILL="#cccccc"] {
-    fill: hsla(0, 0%, 0%, 0);
-}
-#content g path[fill="#ffffff"], #content g path[FILL="#ffffff"] {
-    fill: #444;
-}
-#content g path[stroke="#cccccc"], #content g path[STROKE="#cccccc"], #content g path[STROKE="#ffffff"], #content g path[stroke="#ffffff"], g ellipse[stroke="#ffffff"], #content g path[FILL="#ffffff"], #content g ellipse[STROKE="#ffffff"] {
-    stroke: #000;
-}
-#content g text {
-    text-shadow: none;
-}
-#content g g g text, #content g > g text {
-    fill: #bfbfbf;
-    text-shadow: var(--SGSP-ts-22)!important;
-}
-div#GaFormRealCV, div#GaFormRules, div#GaFormMisc, div#GaFormAdvanced {
-    border-radius: 8px;
-    margin: 3px;
-    padding-left: 7px;
-    padding-top: 10px;
-    width: unset;
-}
-#content input#filterCustomRule, #content input[type="number"], #content input[type="text"]:not(#username) {
-    border-radius: 4px;
-    color: hsl(0, 0%, 68%)!important;
-    font-weight: 600;
-    text-indent: 5px;
-}
-#content form[name="giveaway_filters"] {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-div#GaFormRealCV input, div#GaFormRules input, div#GaFormMisc input {
-    margin-left: 20px;
-}
-div#GaFormAdvanced {
-    margin-top: 30px;
-    padding: 8px;
-    width: 66.2%;
-}
-div#GaFormAdvanced + .center-text {
-    width: 100%;
-}
-button[type="submit"]#giveaway_filters_Update {
-    width: 160px;
-}
-.show-hide-giveaway-list.small-colored {
-    text-decoration: none;
-    width: 140px;
-}
-#content .modal-backdrop {
-    background-color: var(--SGSP-modal-bg-color)!important;
-}
-#content .modal-backdrop.in {
-    opacity: 0.85;
-}
-#content .modal-content {
-    background-color: var(--SGSP-body-bg-color)!important;
-    background-image: linear-gradient(var(--SGSP-content-bg-color) 0%, var(--SGSP-content-bg-color) 100%)!important;
-    border: solid 1px var(--SGSP-content-border-color);
-    box-shadow: 0 0 6px 2px hsla(0, 0%, 0%, 0.8);
-    text-shadow: var(--SGSP-ts-41);
-}
-#content .modal-header {
-    background-color: var(--SGSP-tableheading-bg-color);
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.6);
-    border-radius: 5px 5px 0 0;
-    color: var(--SGSP-headings-txt-color);
-}
-#content .modal-title {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 0.8;
-    text-shadow: var(--SGSP-ts-23);
-}
-#content .modal-header .close {
-    color: #fff;
-    text-shadow: var(--SGSP-ts-11);
-}
-#content .modal-body .featured__outer-wrap--giveaway {
-    margin-bottom: 10px;
-}
 ::placeholder {
     color: hsla(0, 0%, 70%, 0.5)!important;
     text-shadow: var(--SGSP-ts-39);
 }
-#content input#filterCustomRule:focus, #content input[type="number"]:focus, #content input[type="text"]:focus:not(#username) {
-    border-radius: 4px;
-    color: hsl(0, 0%, 75%)!important;
-    font-weight: 600;
-    text-indent: 5px;
-}
-#content textarea {
-    border-radius: 4px;
-    font-weight: 600;
-    padding: 5px 5px 3px;
-}
-#content #giveaway_giveawayUrl {
-    width: 402px;
-}
-input#filterCustomRule {
-    margin-top: 10px;
-    width: 912px;
-}
-.creatorTools, .modTools {
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.creatorTools h2, .modTools h2, .creatorTools p, .modTools p {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-#content p[style*="red"] {
-    color: rgba(246, 85, 85, 0.9)!important;
-}
-.entry.validEntry, .entry.notvalidEntry {
-    border-radius: 4px;
-    cursor: default!important;
-    max-width: 45%;
-    margin: 0 auto -10px;
-}
-.entry.validEntry {
-    border-color: hsl(88, 90%, 25%)!important;
-    background-image: linear-gradient(hsla(88, 65%, 44%, 0.2) 0%, hsla(88, 74%, 21%, 0.9) 100%)!important;
-}
-.entry.notvalidEntry {
-    background-color: transparent!important;
-    background-image: linear-gradient(hsla(0, 65%, 44%, 0.23) 0%, hsla(0, 74%, 24%, 0.9) 100%)!important;
-    border-color: #800!important;
-    color: hsl(0, 68%, 80%)!important;
-}
-#content .rules {
-    padding: 20px;
-}
-#content .featured__outer-wrap + .entry.validEntry, #content .featured__outer-wrap + .entry.notvalidEntry {
-    margin-top: 25px;
-}
-#content .entries {
-    margin-top: 40px;
-}
-#content .featured__outer-wrap {
-    background-image: none!important;
-    background-color: transparent!important;
-    border-radius: 4px;
-    max-width: 96%;
-    padding: 0;
-    top: 0;
-}
-#content .featured__inner-wrap {
-    background-image: var(--SGSP-featured-giveaway-bg-gradient);
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid var(--SGSP-content-border-color);
-    border-radius: 4px;
-    padding: 25px 10px 25px 25px;
-}
-#content .featured__summary {
-    padding: 0 10px 10px;
-}
-.gamanageicons {
-    left: -50px;
-    margin-right: -38px;
-    position: relative;
-}
-.gamanageicons i {
-    margin-left: 8px;
-}
-.gamanageicons i:hover {
-    color: var(--SGSP-green-icons-txt-color);
-    filter: var(--SGSP-nav-button-hover-brightness);
-}
-.gastatus {
-    margin-left: -28px;
-}
-.gastatus a {
-    border: none!important;
-}
-.gastatus + a.global__image-outer-wrap.global__image-outer-wrap--game-large, .gamanageicons + a.global__image-outer-wrap.global__image-outer-wrap--game-large {
-    padding: 5px!important;
-    border-radius: 4px!important;
-    margin: 5px 5px 5px 16px!important;
-    background-color: var(--SGSP-image-bg-color)!important;
-    box-shadow: 3px 3px 4px hsla(0, 0%, 0%, 0.2) inset, 0 0 0 1px #000!important;
-    border: none!important;
-}
-.gamanageicons + a.global__image-outer-wrap.global__image-outer-wrap--game-large {
-    margin: 10px 5px!important;
-}
-.gastatus + a.global__image-outer-wrap.global__image-outer-wrap--game-large:hover, .gamanageicons + a.global__image-outer-wrap.global__image-outer-wrap--game-large:hover, #content .deal_game_image.global__image-outer-wrap:hover {
-    background-color: var(--SGSP-image-bg-color)!important;
-    filter: brightness(95%)!important;
-}
-.gastatus + a + .featured__summary .featured__heading, .gamanageicons + a + .featured__summary .featured__heading {
-    margin: 10px 0 0;
-}
-.gastatus + a + .featured__summary .featured__heading__small, .gamanageicons + a + .featured__summary .featured__heading__small {
-    font-size: 14px;
-}
-#content .manageGa a, #content #gaurl a, #content .showBundledDeals, #content .back-guide a, .show-hide-giveaway-list.small-colored {
-    border: 1px solid;
-    border-radius: 4px;
-    font: bold 13.33px Lato, sans-serif;
-    padding: 6px 10px;
-}
-#content .manageGa a:before, #content #gaurl a:before, #content .showBundledDeals:before, #content .back-guide a:before {
-    margin-right: 5px;
-}
-#content .fa-exclamation {
-    font-family: inherit;
-}
-#content .fa-pencil::before, #content .fa-exclamation:before, #content .fa-eye:before, #content .fa-eye-slash:before, #content .fa-arrow-left:before {
-    font: normal normal normal 14px/1 FontAwesome;
-}
-#content .fa-exclamation:before {
-    color: hsl(187, 43%, 55%);
-}
-#content .featured__column:not(.featured__column--contributor-level--positive) {
-    color: hsl(0, 0%, 65%)!important;
-    border-color: hsla(0, 0%, 0%, 0.5)!important;
-}
-#content .featured__heading {
-    color: hsla(0, 0%, 75%, 0.95)!important;
-}
-#content .featured__heading__medium {
-    font-size: 20px;
-}
-#content .featured__heading__small {
-    color: hsl(0, 0%, 68%)!important;
-    font-size: 16px;
-}
-#content .featured__column a[style*="rgb(173,112,112)"], #content .featured__column i[style*="rgb(173,112,112)"] {
-    color: hsl(202, 63%, 75%)!important;
-    opacity: 1;
-}
-.manageGa + br ~ .featured__outer-wrap .featured__inner-wrap, #help ~ .featured__outer-wrap .featured__inner-wrap, #content .game_deal_wrapper {
-    background-image: none!important;
-    background-color: var(--SGSP-content-inner-bg-color);
-    border: 1px solid var(--SGSP-content-inner-border-color)!important;
-}
-#content .featured__outer-wrap .global__image-outer-wrap--game-large img, .nav__button-container--notification {
-    border-radius: 4px;
-}
-#content .featured__outer-wrap a:not(.global__image-outer-wrap) {
-    border-bottom: transparent!important;
-}
-#content .global__image-outer-wrap--avatar-small {
-    border-bottom-color: hsla(0, 0%, 0%, 0.6)!important;
-}
-#content .global__image-outer-wrap--game-large.global__image-outer-wrap--missing-image-small {
-    font-size: 42px;
-}
-#content .global__image-outer-wrap--game-large.global__image-outer-wrap--missing-image-small > .centerFa {
-    color: inherit;
-    width: 140px;
-}
-.goog-tooltip div, .esgst-feature-description, .jqstooltip {
-    background: var(--SGSP-tooltip-bg-color)!important;
-    border: 1px solid var(--SGSP-tooltip-border-color)!important;
-    border-radius: 4px!important;
-    box-shadow: 2px 2px 8px 0 hsla(0, 0%, 0%, 0.8)!important;
-    color: var(--SGSP-tooltip-txt-color)!important;
-    font-size: 12px;
-    padding: 4px!important;
-    text-shadow: var(--SGSP-ts-45);
-}
-.cmGame {
-    border-radius: 4px;
-    max-width: 85%;
-    margin: auto auto 4px;
-    height: 36px;
-    overflow: hidden;
-    padding: 0 5px;
-}
-.cmGame.multiplewins {
-    height: auto;
-    line-height: 1.3em;
-    margin-bottom: 4px;
-    padding: 10px 5px;
-}
-.total + .separator + .cmGame:not(.multiplewins):not(.notActivatedGame) {
-    font-size: 15px;
-    width: 525px;
-    background-color: hsla(0, 65%, 44%, 0)!important;
-    border-color: hsl(88, 90%, 25%)!important;
-    background-image: linear-gradient(hsla(88, 65%, 44%, 0.2) 0%, hsla(88, 74%, 21%, 0.9) 100%)!important;
-}
-.total + .separator + .cmGame:not(.multiplewins), .cmGame.notActivatedGame {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 36px;
-}
-.total + .separator + .cmGame:not(.multiplewins) h2 {
-    color: hsla(94, 46%, 80%, 0.9)!important;
-}
-div#content:not(.entry):not(.cmGame) {
-    font-size: 0.95em;
-    padding: 65px 25px 0;
-    min-width: 950px;
-    margin-left: auto;
-    text-shadow: var(--SGSP-ts-70);
-}
-.entry, .cmGame, #content .alert-danger {
-    font-size: initial;
-}
-#content .alert-danger {
-    padding: 10px;
-}
-#content a {
-    border-bottom: none;
-}
-#content .left-column {
-    position: inherit;
-}
-#content .left-column input[type=image] {
-    background-color: inherit;
-}
-.img_ad:hover {
-    filter: brightness(0.6)!important;
-}
-#content .center:not(h2) {
-    background-color: var(--SGSP-content-bg-color);
-    border: 1px solid var(--SGSP-content-border-color);
-    border-radius: 4px;
-    box-shadow: 0 0 6px 2px hsla(0, 0%, 0%, 0.8);
-    margin-left: 15px;
-    padding: 20px;
-    text-shadow: var(--SGSP-ts-54);
-}
-#content .center.left {
-    margin-left: 25px;
-}
-#content #form {
-    margin-left: auto;
-}
-#content #help {
-    text-align: left;
-    margin-top: 25px;
-}
-#content h1 {
-    font-size: 34px;
-}
-#content h2 {
-    font-weight: bold;
-    line-height: 36px;
-}
-#content label[for="order"] {
-    text-align: center;
-    padding-right: 0;
-}
-#content td, #content .left .list li, .container img, .description, .description a, .ascii, .comment_body_default, .comment_body_delete, .comment_body_collapse, .page__heading__breadcrumbs i, .page_heading_breadcrumbs i, .sidebar .last_updated, .popup_heading_h2, .sgun_note_date, .SGPP_EntryComm > i {
+.container img, .description, .description a, .ascii, .comment_body_default, .comment_body_delete, .comment_body_collapse, .page__heading__breadcrumbs i, .page_heading_breadcrumbs i, .sidebar .last_updated, .popup_heading_h2, .sgun_note_date, .SGPP_EntryComm > i {
     color: var(--SGSP-general-txt-color);
-}
-#content .legend {
-    margin-right: 5px;
-    font-weight: 600;
-    padding: 0 15px;
-    width: -moz-max-content;
-    width: -webkit-max-content;
-    width: max-content;
-}
-#content .subtitle {
-    margin-bottom: 40px;
-    margin-top: -10px;
-}
-.tab-content {
-    margin-left: auto;
-    max-width: calc(100% - 190px);
-}
-.tab-content .cmGame, .form__sync-default, .form__sync-loading {
-    margin-left: 0!important;
-}
-.tab-links {
-    padding-left: 0;
-    margin-left: 200px;
-}
-.tab-links a {
-    border: 1px solid;
-    border-radius: 4px 4px 0 0;
-    margin-bottom: -1px;
-    padding: 9px 5px;
-}
-.tab-links li {
-    margin: 0 2px;
-}
-#content .total {
-    background-image: var(--SGSP-sgtool-total-bg-color);
-    border: 1px solid var(--SGSP-pinned-border-color);
-    border-radius: 8px;
-    padding: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    height: inherit;
-    display: block;
-    width: 84.5%;
-    min-width: 700px;
-}
-.store-entry-steam img {
-    filter: invert(0.8);
-}
-.store-entry img {
-    background-color: rgba(129, 129, 129, 0.2);
-    border-radius: 4px;
-    margin-top: 6px;
-    padding: 2px;
-}
-#wrapper {
-    background-color: transparent;
-    color: var(--SGSP-general-txt-color);
-    text-shadow: var(--SGSP-ts-70);
 }
 input#real_cv_order {
     border-color: white!important;
@@ -988,17 +470,10 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     border-color: #800!important;
     box-shadow: none!important;
 }
-.query-builder .has-error, #content .alert-danger, .cmGame.multiplewins, .cmGame.notActivatedGame {
+.query-builder .has-error {
     background-color: hsla(0, 65%, 44%, 0)!important;
     border-color: #800!important;
     background-image: linear-gradient(hsla(0, 65%, 44%, 0.23) 0%, hsla(0, 74%, 24%, 0.9) 100%)!important;
-}
-#content .alert-danger, .cmGame.multiplewins, .cmGame.notActivatedGame {
-    color: hsl(0, 68%, 80%)!important;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 65%;
 }
 .query-builder .rules-list > ::after, .query-builder .rules-list > ::before {
     border-color: rgba(0, 0, 0, 0.6)!important;
@@ -1032,6 +507,9 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
 }
 .query-builder .has-error .form-control:focus {
     box-shadow: rgba(0, 0, 0, 0.75) 0 1px 1px inset, #d82825 0 0 6px!important;
+}
+.query-builder .form-control {
+    padding: 4px 10px!important;
 }
 .btn-group-xs > .btn, .btn-xs, .btn-group-xs > .btn > i, .btn-xs > i {
     text-shadow: var(--SGSP-ts-44);
@@ -1162,7 +640,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
 .action_list, .comment_collapse_btn, .comment_expand_btn, .author_name:not(.is_op), .author_small, .author_permalink {
     text-shadow: var(--SGSP-ts-54);
 }
-.comment__collapse-button, .comment__expand-button, .comment_collapse_btn, .comment_expand_btn, #content a, #content a :hover, #content a :focus, .comment__author i {
+.comment__collapse-button, .comment__expand-button, .comment_collapse_btn, .comment_expand_btn, .comment__author i {
     color: inherit;
 }
 .comment__birthday {
@@ -1247,7 +725,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
         min-width: unset;
     }
 }
-.comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened):not(.table__column__select), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), #content strong a, #content td a, form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight-whitelisted):not(.esgst-wbh-highlight-blacklisted) {
+.comment__username:not(.comment__username--op) a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), .author_name:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), .form__heading__text, .form__level, .giveaway__links:not(.esgst-giveaway-links) span, .giveaway-summary__links span, .giveaway__username:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), .markdown a:not(.esgst-gc), .pagination__navigation a:not(.is-selected), .pagination_navigation a, .popup__actions, .popup_actions, .popup__description__small, .table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.table__column__select), .comments__entity__name, .table .underline:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), form .heading .name, .header_search .description .blue, .esgst-ggl-member, .esgst-form-heading-text, .patreon_reward:not(.is_locked) .patreon_reward_summary_name, .esgst-aic-source, .esgst-popup-actions, .DTEP_ACHIEVEMENTS + a > [style*="color"], .esgst-steam-api-key ~ div a, a.esgst-bold:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight-whitelisted):not(.esgst-wbh-highlight-blacklisted) {
     color: var(--SGSP-link-txt-color)!important;
     text-shadow: var(--SGSP-ts-76);
 }
@@ -1287,7 +765,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     background-color: hsl(210, 65%, 26%);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
 }
-.comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__username--permalink a, a.author_name.is_op:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
+.comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), .comment__username--permalink a, a.author_name.is_op:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight) {
     color: #BBBBBB!important;
     text-shadow: var(--SGSP-ts-43)!important;
 }
@@ -1295,7 +773,7 @@ button.btn.dropdown-toggle.btn-inverse.btn-xs, .btn-group.open .dropdown-toggle 
     height: var(--SGSP-comment-avatar-size);
     width: var(--SGSP-comment-avatar-size);
 }
-.comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened) {
+.comment__username--op a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight) {
     text-shadow: var(--SGSP-ts-43)!important;
 }
 .description a {
@@ -1426,21 +904,17 @@ div > .table__column--width-fill > form > strong {
 #help ~ .featured__outer-wrap:before, #help ~ .featured__outer-wrap:after {
     background-image: none!important;
 }
-#footer {
-    bottom: -18px;
-    position: relative;
-}
 .footer__inner-wrap {
     margin-right: 43px;
 }
-.footer__inner-wrap, #footer, .footer_inner_wrap {
+.footer__inner-wrap, .footer_inner_wrap {
     color: hsl(0, 0%, 60%);
     text-shadow: var(--SGSP-ts-26);
 }
-.footer__inner-wrap a, #footer a, .footer_inner_wrap a {
+.footer__inner-wrap a, .footer_inner_wrap a {
     color: hsla(0, 0%, 70%, 0.7);
 }
-.footer__inner-wrap a:hover, #footer a:hover {
+.footer__inner-wrap a:hover {
     color: hsl(0, 0%, 70%);
     border-bottom: 1px dotted hsl(0, 0%, 70%);
 }
@@ -1453,7 +927,7 @@ div > .table__column--width-fill > form > strong {
 .footer_column_name, .footer_heading, .header_search > div .description strong {
     color: hsl(0, 0%, 75%);
 }
-.footer__outer-wrap, #footer, footer {
+.footer__outer-wrap, footer {
     background-image: var(--SGSP-header-footer-bg-color)!important;
     border-bottom: 1px solid var(--SGSP-header-footer-border-color);
     border-top: 1px solid var(--SGSP-header-footer-border-color);
@@ -1587,7 +1061,7 @@ form .heading {
 .giveaway__column--positive, .author_small .is_positive, .table .reputation .is_positive, .rating_checkbox.is_positive.is_selected, .positive, .positive i {
     color: var(--SGSP-green-icons-txt-color)!important;
 }
-.giveaway__columns:not(.esgst-gv-icons):not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button):not(.giveaway__column--new):not(.giveaway__column--wish):not(.esgst-button-set):not(.esgst-gc):not([data-draggable-id="sgTools"]):not(.giveaway__column--birthday), #help ~ .featured__outer-wrap .featured__inner-wrap .featured__column:not(.featured__column--contributor-level--positive):not(.esgst-gwc):not(.esgst-gwr) {
+.giveaway__columns:not(.esgst-gv-icons):not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button):not(.esgst-button-set):not(.esgst-gc):not([data-draggable-id="sgTools"]):not(.giveaway__column--birthday), #help ~ .featured__outer-wrap .featured__inner-wrap .featured__column:not(.featured__column--contributor-level--positive):not(.esgst-gwc):not(.esgst-gwr) {
     background-image: var(--SGSP-giveaway-columns-bg-color);
     border-color: var(--SGSP-giveaway-columns-border-color)!important;
     box-shadow: 1px 1px 0 var(--SGSP-giveaway-columns-boxshadow-color) inset!important;
@@ -1612,7 +1086,14 @@ form .heading {
 .giveaway_image_thumbnail:not([style*="null"]):not(.esgst-ib-game):not([class*="border"]):not([class*="whitelist"]) {
     background-color: #20201d!important;
 }
-.markdown img, .global__image-outer-wrap--avatar-small, #content .global__image-outer-wrap, .esgst-ib-user, .esgst-ib-game, .featured__outer-wrap .esgst-ib-user, iframe.global__image-outer-wrap {
+.giveaway__row-inner-wrap.is-faded .giveaway_image_thumbnail:hover {
+    background-blend-mode: unset;
+}
+.giveaway__row-inner-wrap.is-faded .giveaway_image_thumbnail {
+    filter: unset;
+    background-blend-mode: luminosity;
+}
+.markdown img, .global__image-outer-wrap--avatar-small, .esgst-ib-user, .esgst-ib-game, .featured__outer-wrap .esgst-ib-user, iframe.global__image-outer-wrap {
     background-color: var(--SGSP-image-bg-color);
     border: 1px solid var(--SGSP-image-border-color);
     filter: var(--SGSP-image-brightness);
@@ -1624,10 +1105,10 @@ form .heading {
     filter: var(--SGSP-image-brightness);
 }
 .esgst-gv-view .giveaway_image_thumbnail, .esgst-gv-view .giveaway_image_thumbnail_missing, .SGPP__gridTile .giveaway_image_thumbnail, .SGPP__gridTile .giveaway_image_thumbnail_missing, .giveaway-gridview .global__image-outer-wrap, .esgst-gv-box .global__image-inner-wrap {
-    filter: var(--SGSP-grid-brightness);
+    filter: var(--SGSP-grid-brightness)!important;
 }
 .esgst-gv-container:hover .giveaway_image_thumbnail, .esgst-gv-container:hover .giveaway_image_thumbnail_missing, .esgst-gv-container:hover .esgst-gv-icons, .SGPP__gridTile:hover .giveaway_image_thumbnail, .SGPP__gridTile:hover .giveaway_image_thumbnail_missing, .giveaway-gridview:hover .faded, .giveaway-gridview:hover .global__image-outer-wrap, .esgst-gv-box:hover .global__image-inner-wrap {
-    filter: var(--SGSP-grid-hover-brightness);
+    filter: var(--SGSP-grid-hover-brightness)!important;
     opacity: 1;
 }
 .giveaway_image_thumbnail_missing, .table_image_thumbnail_missing, .table_image_avatar_missing, .table_image_flag_missing, .giveaway_image_thumbnail[style*="background-image"][style*="null"] {
@@ -1656,7 +1137,7 @@ form .heading {
     color: rgba(160, 160, 160, 0.85);
     box-shadow: none;
 }
-header.small, header.large, header, #header {
+header.small, header.large, header {
     background-image: var(--SGSP-header-footer-bg-color);
     box-shadow: 0 1px 10px 3px hsla(0, 0%, 0%, 0.8), 0 -1px 0 var(--SGSP-header-footer-border-color) inset, 0 -10px 10px -3px hsla(0, 0%, 0%, 0.55) inset;
     z-index: 1000!important;
@@ -1667,11 +1148,6 @@ header.small, header.large, header, #header {
 }
 .heading_btns > div {
     border-color: var(--SGSP-sidebar-border-color);
-}
-#header {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
 }
 .header_search {
     border-top: 1px solid var(--SGSP-separator-light-color);
@@ -1689,10 +1165,6 @@ header.small, header.large, header, #header {
     .header_search {
         gap: 10px;
     }
-}
-#header input[type="image"] {
-    box-shadow: 0 0 0 1px hsl(0, 0%, 0%)!important;
-    margin-bottom: -3px;
 }
 .highcharts-axis-labels text, .highcharts-button text {
     fill: var(--SGSP-general-txt-color)!important;
@@ -1728,7 +1200,7 @@ input {
     caret-color: hsla(0, 0%, 65%, 0.8);
 }
 input::-webkit-calendar-picker-indicator {
-    filter: invert(0.7);
+    filter: invert(0.3);
 }
 input::-webkit-inner-spin-button {
     filter: invert(0.8);
@@ -1769,7 +1241,7 @@ input, textarea {
 .esgst-ged-icon[class*=esgst-red], .esgst-ged-icon[class*=esgst-yellow] {
     opacity: 0.7;
 }
-#content i.fa.fa-check-circle-o.orange, .fanatical_new, .bundle_new {
+.fanatical_new, .bundle_new {
     filter: brightness(82%);
 }
 input:focus, select:focus, textarea:focus {
@@ -1783,9 +1255,6 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
 }
 .leaderboard {
     margin: 12px auto -12px!important;
-}
-#legend {
-    margin-bottom: 40px;
 }
 .lightbox {
     background-color: var(--SGSP-modal-bg-color)
@@ -1892,28 +1361,25 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
     border-top: 1px solid hsla(0, 0%, 0%, 0.85)!important;
     border-bottom: 1px solid var(--SGSP-trade-have-border-color)!important;
 }
-.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6, #content h1, #content h2, #content h3:not(.sidebar__heading), #content .subtitle, #content .wrap .left .before-list, .header_search .name {
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6, .header_search .name {
     color: hsl(0, 0%, 68%);
     text-shadow: var(--SGSP-ts-56);
     filter: brightness(1);
 }
-#content h1:not(.title), #content h2, #content h3:not(.sidebar__heading):not(.deal_game_title), #content .wrap .left .before-list, .header_search .name {
+.header_search .name {
     color: hsl(213, 19%, 63%);
 }
-#leaderTop + h1, #leaderTop + #form > h1, #section-content-title {
-    color: var(--SGSP-pageheading-txt-color)!important;
-}
-.markdown h1 > strong, .markdown h2 > strong, .markdown h3 > strong, #content h1 > strong, #content h2 > strong, #content h3 > strong {
+.markdown h1 > strong, .markdown h2 > strong, .markdown h3 > strong {
     filter: brightness(1)!important;
 }
-.markdown h1, #content h1 {
+.markdown h1 {
     color: var(--SGSP-headings-size1-txt-color);
     font-weight: 900;
 }
-.markdown h2, #content h2 {
+.markdown h2 {
     color: var(--SGSP-headings-size2-txt-color);
 }
-.markdown h3, #content h3:not(.sidebar__heading) {
+.markdown h3 {
     color: var(--SGSP-headings-size3-txt-color);
 }
 .markdown hr, hr, .esgst-sync-warning ~ .esgst-text-left hr {
@@ -1965,7 +1431,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
     color: transparent!important;
     text-shadow: none;
 }
-.markdown .spoiler:hover a, .markdown .spoiler:not(:hover) strong, #content g text {
+.markdown .spoiler:hover a, .markdown .spoiler:not(:hover) strong {
     text-shadow: none!important;
 }
 .esgst-popup .global__image-outer-wrap {
@@ -2041,23 +1507,12 @@ tbody tr:last-child td:last-child {
 #np_steamgifts_homepage_top_responsive > * {
     padding-top: 0px!important;
 }
-.navigation .pagination > .page-item > .page-link {
-    background-image: var(--SGSP-pageheading-bg-color);
-    border: 1px solid var(--SGSP-pageheading-border-color)!important;
-    color: var(--SGSP-pageheading-txt-color)!important;
-}
-.navigation .pagination > .active > .page-link {
-    color: var(--SGSP-red-icons-txt-color)!important;
-}
-.navigation .pagination > .page-item:not(.active):not(.disabled) > .page-link:hover {
-    filter: brightness(0.85);
-}
 .nav__absolute-dropdown, .dropdown > div, .esgst-header-menu-absolute-dropdown, .esgst-header-menu-relative-dropdown > div {
     background-color: hsl(0, 0%, 21%)!important;
     box-shadow: 0 0 0 1px var(--SGSP-nav-dropdown-border-color)!important;
 }
 .nav__avatar-inner-wrap, .global__image-outer-wrap--game-large img, .global__image-outer-wrap--game-xlarge img, .featured__column.featured__column--width-fill.text-right > a, .profile_avatar, .nav_avatar, .table .avatar, .author_avatar, .giveaway_image_thumbnail, .giveaway_image_thumbnail_missing, .giveaway_image_avatar, .featured_giveaway_image_avatar, .table_image_avatar, .table_image_thumbnail, .table_image_flag, .gridview-avatar, [id*="np_steamgifts"], [id*="np_steamtrades"] {
-    filter: var(--SGSP-image-brightness);
+    filter: var(--SGSP-image-brightness)!important;
 }
 .nav__avatar-outer-wrap {
     border-right: 1px solid hsla(230, 6%, 32%, 0.6);
@@ -2072,7 +1527,7 @@ tbody tr:last-child td:last-child {
 .nav_btn {
     border-color: hsl(215, 8%, 5%);
 }
-.nav_btn:hover:not(.is_selected), .nav__button-container.is-selected .nav__button, .nav__button:hover, #header .nav__left-container .nav__button-container.is-selected:first-of-type .nav__button:hover, #header .nav__right-container .nav__button-container.is-selected:first-of-type .nav__button:hover, .esgst-header-menu-button:hover:not(.is_selected) {
+.nav_btn:hover:not(.is_selected), .nav__button-container.is-selected .nav__button, .nav__button:hover, .esgst-header-menu-button:hover:not(.is_selected) {
     filter: var(--SGSP-nav-button-hover-brightness) var(--SGSP-nav-button-hover-saturate);
 }
 .nav_btn_container {
@@ -2109,7 +1564,7 @@ tbody tr:last-child td:last-child {
 .nav_btn_dropdown.is_selected {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3) inset;
 }
-.nav__button, #header .nav__button-container.is-selected .nav__button, .nav_btn {
+.nav__button, .nav_btn {
     background-image: var(--SGSP-nav-button-bg-color)!important;
     box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 1px 1px 1px rgba(255, 255, 255, 0.12) inset, 1px 1px 0 rgba(255, 255, 255, 0.07) inset;
     transition: filter 0.35s ease-in;
@@ -2124,9 +1579,6 @@ tbody tr:last-child td:last-child {
 }
 .nav_btn_right {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.06) inset;
-}
-#header .nav__left-container .nav__button-container.is-selected:first-of-type .nav__button:not(:hover):not(.is-selected), #header .nav__right-container .nav__button-container.is-selected:first-of-type .nav__button:not(:hover) {
-    filter: brightness(1) saturate(1)!important;
 }
 .nav__button-container.is-selected .nav__button.nav__button--is-dropdown-arrow.is-selected, .nav__button.is-selected, .nav_btn_dropdown.is_selected, .esgst-header-menu-button.arrow.selected {
     filter: saturate(0)!important;
@@ -2286,7 +1738,7 @@ nav .nav_avatar {
     box-shadow: none;
     z-index: 2;
 }
-.page__heading__button--red, .header__error, #infraction, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .cmGame.bundled, .btn-danger, .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__error {
+.page__heading__button--red, .header__error, .btn_action.red, .page_heading_btn.red, .sidebar__error, .sidebar__suspension, .giveaway__column--contributor-level--negative:not(.esgst-glh-highlight), .featured__column--contributor-level--negative:not(.esgst-glh-highlight), .btn-danger, .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__error {
     background-image: var(--SGSP-red-buttons-bg-color)!important;
     border: 1px solid #000!important;
     border-color: var(--SGSP-red-buttons-border-color)!important;
@@ -2298,21 +1750,6 @@ nav .nav_avatar {
 .sidebar__suspension--flat-bottom {
     background-image: var(--SGSP-red-suspension-top-bg-color)!important;
     border-bottom: none!important;
-}
-.cmGame.not5entries {
-    background-image: linear-gradient(hsla(0,0%,37%,1) 0%, hsla(0,0%,9%,1) 100%)!important;
-    border-color: hsla(0,0%,54%,1) hsla(0,0%,41%,1) hsla(0,0%,34%,1) hsla(0,0%,41%,1)!important;
-    filter: saturate(0);
-}
-.cmGame.dmed, .cmGame.notActivatedDLC, .cmGame.cantCheckActivated {
-    background-image: linear-gradient(hsla(39, 86%, 42%, 1) 0%, hsla(39, 86%, 35%, 1) 50%, hsla(39, 86%, 28%, 1) 100%)!important;
-    border-color: hsla(39, 96%, 60%, 1) hsla(39, 96%, 45%, 1) hsla(39, 96%, 40%, 1) hsla(39, 96%, 45%, 1)!important;
-    color: hsl(39, 50%, 80%)!important;
-}
-.cmGame.freeGame {
-    background-image: linear-gradient(#8440a5 0%, #4c106a 100%)!important;
-    border-color: #b26ed4 #9038bc #8132a9 #9038bc!important;
-    color: #d8a9ef!important;
 }
 .page__heading i {
     vertical-align: inherit;
@@ -2396,9 +1833,6 @@ nav .nav_avatar {
 }
 .page__inner-wrap:not(.page__inner-wrap--narrow), nav, .footer__inner-wrap, .featured__inner-wrap, .offer__inner-wrap, footer > .footer_inner_wrap {
     max-width: var(--SGSP-page-width);
-}
-#header nav, #content, #content .featured__inner-wrap {
-    max-width: var(--SGSP-page-width-sgt);
 }
 .page__outer-wrap, .page_outer_wrap, #sg_dyepb_toolbar, .row_trade_name > h2, .table .bundle_name {
     background-color: transparent;
@@ -2728,7 +2162,7 @@ div[style*="padding-top: 35px"] a[href*="patreon"] > span, .humble_block strong 
     margin-left: 1px;
     margin-right: 1px;
 }
-.sale-savings--high, .offer__discount, #content .deal_game_discount {
+.sale-savings--high, .offer__discount {
     cursor: inherit;
 }
 div.sg-info {
@@ -2750,12 +2184,7 @@ div.sg-info {
 #groupTooltip .table__row-outer-wrap {
     padding: 5px 10px 5px 5px;
 }
-#content button#check[style*="rgb(204, 184, 188)"], .ruleFailed {
-    border-radius: 4px;
-    box-shadow: none;
-    color: hsl(0, 68%, 80%)!important;
-}
-.sidebar__entry-delete, #content button#check[style*="rgb(219, 219, 160)"], .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__entry-delete {
+.sidebar__entry-delete, .esgst-gv-popout .giveaway__links .esgst-button-container [data-draggable-id="elgb"].sidebar__entry-delete {
     background-image: var(--SGSP-yellow-buttons-bg-color)!important;
     border: 1px solid hsl(0, 0%, 0%)!important;
     border-color: var(--SGSP-yellow-buttons-border-color)!important;
@@ -2764,11 +2193,7 @@ div.sg-info {
     transition: filter 0.35s ease-in;
     will-change: filter;
 }
-#content button#check[style*="rgb(219, 219, 160)"] {
-    box-shadow: none;
-    color: hsl(63, 70%, 85%)!important;
-}
-.sidebar__entry-delete:not(:active):hover, .sidebar__entry-insert:not(.is-disabled):not(:active):hover, .sidebar__action-button:not(.is-disabled):not(:active):hover, .nav__sits:not(.is-disabled):not(:active):hover, .form__submit-button:not(.is-disabled):not(:active):hover, .form__sync-default:not(.is-disabled):not(:active):hover, .featured__action-button:not(.is-disabled):not(:active):hover, #content button[type="submit"]:hover, #content #activated_send:not(:active):hover, #content #real_cv_send:not(:active):hover, #content #multiple_wins_send:not(:active):hover, #content #giveaway_Create:not(:active):hover, .btn_action.green:hover:not(.is_saving):not(.is_disabled):not(:active), .sidebar__shortcut-inner-wrap > *:not(.is-disabled):not(:active):not([style*="border: none;"]):hover, .tab-links a:not(:active):hover, .btn_action.white:hover:not(.is_saving):not(.is_disabled):not(:active), .btn_action.grey:hover:not(.is_saving):not(.is_disabled):not(:active), .btn_action.red:hover:not(.is_saving):not(.is_disabled):not(:active), .comment__submit-button:not(.is-disabled):not(:active):hover, .sidebar__entry-loading:not(.is-disabled):hover, .comment__action-button:not(.is-disabled):hover, .page__description__save:not(.is-disabled):hover, .poll__vote-button:not(.is-disabled):hover, .form__add-answer-button:not(.is-disabled):hover, .form__sync-loading:not(.is-disabled):hover, .form__verify-default:not(.is-disabled):hover, li.selected a:hover, .sidebar__entry-insert[style*="border-color: rgb(147, 187, 211)"]:hover, #content #gaurl a:hover, #content .manageGa a:hover, #content .showBundledDeals:hover, #content .back-guide a:hover, #content .gaButton:hover, #content #giveaway_filters_Update:hover, #content .deal_game_discount:hover, #btn-get:hover, .btn-success:hover, .btn-danger:hover, .btn-primary:hover, .btn-info:hover, .GDCBPButton:hover, .sp-container button:not(:active):hover, .esgst-sm-colors-default:hover, .view_key_btn:not(:active):hover, .esgst-sgpb-button:not(:active):hover, .esgst-sttb-button:hover, .esgst-stbb-button:hover, #DTEP_SteamApiKey + input:not(:active):hover, .show-hide-giveaway-list.small-colored:not(:active):hover, #dlg-body .RC-button:not(:active):hover, #dlg-body .RCE-button:not(:active):hover, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):not(:active):hover, #dlgbox #closeRC:hover, #dlg-box #closeRCE:hover, #SGLCdlg #closeSGLC:hover, .esgst-chfl-panel i:not(:active):hover, .table__column__key__redeem:not(:active):hover {
+.sidebar__entry-delete:not(:active):hover, .sidebar__entry-insert:not(.is-disabled):not(:active):hover, .sidebar__action-button:not(.is-disabled):not(:active):hover, .nav__sits:not(.is-disabled):not(:active):hover, .form__submit-button:not(.is-disabled):not(:active):hover, .form__sync-default:not(.is-disabled):not(:active):hover, .featured__action-button:not(.is-disabled):not(:active):hover, .btn_action.green:hover:not(.is_saving):not(.is_disabled):not(:active), .sidebar__shortcut-inner-wrap > *:not(.is-disabled):not(:active):not([style*="border: none;"]):hover, .tab-links a:not(:active):hover, .btn_action.white:hover:not(.is_saving):not(.is_disabled):not(:active), .btn_action.grey:hover:not(.is_saving):not(.is_disabled):not(:active), .btn_action.red:hover:not(.is_saving):not(.is_disabled):not(:active), .comment__submit-button:not(.is-disabled):not(:active):hover, .sidebar__entry-loading:not(.is-disabled):hover, .comment__action-button:not(.is-disabled):hover, .page__description__save:not(.is-disabled):hover, .poll__vote-button:not(.is-disabled):hover, .form__add-answer-button:not(.is-disabled):hover, .form__sync-loading:not(.is-disabled):hover, .form__verify-default:not(.is-disabled):hover, li.selected a:hover, .sidebar__entry-insert[style*="border-color: rgb(147, 187, 211)"]:hover, #btn-get:hover, .btn-success:hover, .btn-danger:hover, .btn-primary:hover, .btn-info:hover, .GDCBPButton:hover, .sp-container button:not(:active):hover, .esgst-sm-colors-default:hover, .view_key_btn:not(:active):hover, .esgst-sgpb-button:not(:active):hover, .esgst-sttb-button:hover, .esgst-stbb-button:hover, #DTEP_SteamApiKey + input:not(:active):hover, #dlg-body .RC-button:not(:active):hover, #dlg-body .RCE-button:not(:active):hover, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):not(:active):hover, #dlgbox #closeRC:hover, #dlg-box #closeRCE:hover, #SGLCdlg #closeSGLC:hover, .esgst-chfl-panel i:not(:active):hover, .table__column__key__redeem:not(:active):hover {
     filter: var(--SGSP-button-hover-brightness);
 }
 .sidebar__entry-insert[style*="border-color: rgb(147, 187, 211)"] {
@@ -2792,7 +2217,7 @@ div.sg-info {
 .sidebar__entry__points {
     font-weight: 600;
 }
-.sidebar__error, .sidebar__suspension, #content button#check[style*="rgb(204, 184, 188)"], .ruleFailed, .cmGame {
+.sidebar__error, .sidebar__suspension {
     cursor: default!important;
 }
 .sidebar__heading {
@@ -2907,7 +2332,7 @@ input.ui_tpicker_time_input, input.sp-input {
     transition: filter 0.35s ease-in, opacity 0.35s ease-in;
     will-change: filter, opacity;
 }
-.sidebar__navigation__item.is-selected .sidebar__navigation__item__name, .sidebar__navigation__item.is-selected i, .icon-red, .author_small .is_negative, .table i.red, .table .reputation .is_negative, .pagination__navigation a.is-selected, .pagination_navigation a.is_selected, i.fa.fa-times-circle-o.red, .poll__delete-input, .sg-icon-red, .header_search .description .red, .dropdown_btn i.red, .popup.is_error .popup_icon i, .rating_checkbox.is_negative.is_selected, .sidebar_table > div.is_warning i, .FTB-suspension-string, .sidebar__shortcut__blacklist.esgst-blacklist, .fa-ban.esgst-blacklist, .esgst-blacklist, .fa-times-circle.esgst-negative, .fa-thumbs-down.esgst-negative, .esgst-negative, #SGIgnore-QuickButton-ProfileAddUser i, .esgst-header-menu-row i.red, .esgst-ap-suspended > *, .form__row span[style*="color: #da5d88"], .esgst-popup .esgst-warning, .tooltip_row i[style*="color: #ec8583"], .esgst-red, .markdown a.esgst-red, .esgst-description.esgst-red, .table__column__deleted, [style*="crimson"], [style*="red"] {
+.sidebar__navigation__item.is-selected .sidebar__navigation__item__name, .sidebar__navigation__item.is-selected i, .icon-red, .author_small .is_negative, .table i.red, .table .reputation .is_negative, .pagination__navigation a.is-selected, .pagination_navigation a.is_selected, i.fa.fa-times-circle-o.red, .poll__delete-input, .sg-icon-red, .header_search .description .red, .dropdown_btn i.red, .popup.is_error .popup_icon i, .rating_checkbox.is_negative.is_selected, .sidebar_table > div.is_warning i, .FTB-suspension-string, .sidebar__shortcut__blacklist.esgst-blacklist, .fa-ban.esgst-blacklist, .esgst-blacklist, .fa-times-circle.esgst-negative, .fa-thumbs-down.esgst-negative, .esgst-negative, #SGIgnore-QuickButton-ProfileAddUser i, .esgst-header-menu-row i.red, .esgst-ap-suspended > *, .form__row span[style*="color: #da5d88"], .esgst-popup .esgst-warning, .tooltip_row i[style*="color: #ec8583"], .esgst-red, .markdown a.esgst-red, .esgst-description.esgst-red, .table__column__deleted, [style*="crimson"], [style*="red"]:not([style*="shared"]) {
     color: var(--SGSP-red-icons-txt-color)!important;
 }
 .sidebar__shortcut-inner-wrap > .is-selected.sidebar__shortcut__whitelist, .page__heading__button--blue {
@@ -2948,7 +2373,7 @@ a.sidebar__navigation__item__link.expired:not(.sidebar__navigation__item__underl
     transition: visibility 0s linear 0.3s, opacity 0.3s ease 0s, top 0.3s ease 0s;
     z-index: 50;
 }
-.header_search > div > div > div:last-child:active, .header_search > div > div > div:last-child:active, .sidebar__shortcut-inner-wrap > *:not(.is-disabled):active, .sidebar__entry-loading:not(.is-disabled):active, .comment__submit-button:not(.is-disabled):active, .page__description__save:not(.is-disabled):active, .poll__vote-button:not(.is-disabled):active, .form__add-answer-button:not(.is-disabled):active, .form__sync-loading:not(.is-disabled):active, .btn_action:active:not(.is_saving):not(.is_disabled), .sidebar__entry-insert:not(.is-disabled):active, .sidebar__action-button:not(.is-disabled):active, .nav__sits:not(.is-disabled):active, .form__saving-button:not(.is-disabled):active, .form__submit-button:not(.is-disabled):active, .form__sync-default:not(.is-disabled):active, .featured__action-button:not(.is-disabled):active, .sidebar__entry-delete:active, #content #gaurl a:active, #content .manageGa a:active, #content .showBundledDeals:active, #content button[type="submit"]:active, #content #activated_send:active, #content #real_cv_send:active, #content #multiple_wins_send:active, #content #giveaway_Create:active, #content .back-guide a:active, #content .gaButton:active, #content #giveaway_filters_Update:active, .sp-container button:active, .esgst-sm-colors-default:active, .view_key_btn:active, .esgst-sgpb-button:active, #DTEP_SteamApiKey + input:active, .show-hide-giveaway-list.small-colored:active, #dlg-body .RC-button:active, #dlg-body .RCE-button:active, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):active, .esgst-chfl-panel i:active, .table__column__key__redeem:active {
+.header_search > div > div > div:last-child:active, .header_search > div > div > div:last-child:active, .sidebar__shortcut-inner-wrap > *:not(.is-disabled):active, .sidebar__entry-loading:not(.is-disabled):active, .comment__submit-button:not(.is-disabled):active, .page__description__save:not(.is-disabled):active, .poll__vote-button:not(.is-disabled):active, .form__add-answer-button:not(.is-disabled):active, .form__sync-loading:not(.is-disabled):active, .btn_action:active:not(.is_saving):not(.is_disabled), .sidebar__entry-insert:not(.is-disabled):active, .sidebar__action-button:not(.is-disabled):active, .nav__sits:not(.is-disabled):active, .form__saving-button:not(.is-disabled):active, .form__submit-button:not(.is-disabled):active, .form__sync-default:not(.is-disabled):active, .featured__action-button:not(.is-disabled):active, .sidebar__entry-delete:active, .sp-container button:active, .esgst-sm-colors-default:active, .view_key_btn:active, .esgst-sgpb-button:active, #DTEP_SteamApiKey + input:active, #dlg-body .RC-button:active, #dlg-body .RCE-button:active, #SGLCdlg-body .SGLCdlg-button:not(#SGLCdlg-progress):active, .esgst-chfl-panel i:active, .table__column__key__redeem:active {
     transition: filter 0.01s;
     will-change: filter;
     margin-top: 0;
@@ -2965,13 +2390,6 @@ a.sidebar__navigation__item__link.expired:not(.sidebar__navigation__item__underl
 .header_search > div > div > div:last-child:active, .header_search > div > div > div:last-child:active {
     color: #ffffff;
     margin: -2px -2px 0 0;
-}
-#content .showBundledDeals:active {
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-#content button[type="submit"], #content #activated_send:active, #content #real_cv_send:active, #content #multiple_wins_send:active, #content #giveaway_Create:active, #content .gaButton, #content #giveaway_filters_Update {
-    margin-top: 10px!important;
 }
 .sidebar__search-input {
     background-color: unset;
@@ -3035,7 +2453,7 @@ strong {
     filter: brightness(1.18);
     text-shadow: var(--SGSP-ts-46)!important;
 }
-.table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened):not(.table__column__select), .pagination__navigation a:not(.is-selected) span, .pagination_navigation a:not(.is_selected) span, .comment__cancel-button span, .page__description__cancel span, .form__edit-button span, .form__logout-button span, .comment__username a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), a.author_name:not(.is_op):not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.user__whitened):not(.user__blackened), .comment__actions__button, .page__description__edit, .giveaway__username, .giveaway__links span, .action_list a, .popup__actions > *, .popup__description__small a, .esgst-popup-actions a, .DTEP_ACHIEVEMENTS + a > [style*="color"] {
+.table__column__secondary-link:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight):not(.table__column__select), .pagination__navigation a:not(.is-selected) span, .pagination_navigation a:not(.is_selected) span, .comment__cancel-button span, .page__description__cancel span, .form__edit-button span, .form__logout-button span, .comment__username a:not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), a.author_name:not(.is_op):not(.esgst-namwc-highlight):not(.esgst-wbh-highlight), .comment__actions__button, .page__description__edit, .giveaway__username, .giveaway__links span, .action_list a, .popup__actions > *, .popup__description__small a, .esgst-popup-actions a, .DTEP_ACHIEVEMENTS + a > [style*="color"] {
     border-bottom: 1px dotted;
     box-shadow: 0 1px 0 hsl(0, 0%, 24%)!important;
 }
@@ -3052,7 +2470,7 @@ strong {
 .table__column--width-fill > a > .fa-heart {
     vertical-align: baseline;
 }
-.table__heading, .markdown th, #content th {
+.table__heading, .markdown th {
     color: var(--SGSP-chart-head-txt-color);
     font-size: 100%;
     text-shadow: var(--SGSP-ts-19);
@@ -3113,7 +2531,7 @@ strong {
 .table__row-outer-wrap, .table .row_outer_wrap, .popup__keys__description {
     color: var(--SGSP-secondary-txt-color);
 }
-.table__row-outer-wrap:not(:last-of-type), .table .row_outer_wrap:not(:last-of-type), .comments > .comment_outer:not(:last-child), .giveaway__row-outer-wrap:not(:last-child):not(.esgst-gv-container), .comments > .comment:not(:last-child), .popup__keys__list > div:not(:last-of-type), .sgun_note:not(:last-of-type), #content .store-entry a, .__table_row_banned, .sidebar_table > div:not(:last-child) {
+.table__row-outer-wrap:not(:last-of-type), .table .row_outer_wrap:not(:last-of-type), .comments > .comment_outer:not(:last-child), .giveaway__row-outer-wrap:not(:last-child):not(.esgst-gv-container), .comments > .comment:not(:last-child), .popup__keys__list > div:not(:last-of-type), .sgun_note:not(:last-of-type), .__table_row_banned, .sidebar_table > div:not(:last-child) {
     border-bottom: 1px solid var(--SGSP-separator-dark-color)!important;
     box-shadow: 0 1px 0 var(--SGSP-separator-light-color);
 }
@@ -3128,7 +2546,7 @@ textarea[name="have"], textarea[name="want"], textarea[name="description"] {
     background: hsla(0, 0%, 0%, 0.13);
     border-radius: 2px;
     border: none;
-    box-shadow: 0 0 0 1px #000;
+    box-shadow: 0 0 0 1px hsla(0, 0%, 33%, 85%);
     z-index: 997!important;
 }
 .ui-datepicker {
@@ -3345,6 +2763,7 @@ progress::-moz-progress-bar {
 ::-webkit-scrollbar-thumb {
     background: var(--SGSP-scrollbar-thumb-bg-color) center no-repeat;
     box-shadow: 0 0 1px 1px hsla(0, 0%, 0%, 0.6) inset;
+    border-radius: 8px;
 }
 ::-webkit-scrollbar-track:vertical {
     background: var(--SGSP-scrollbar-bg-color);
@@ -3935,7 +3354,7 @@ div:has(> .sidebar__heading):has(#sg2o-level-slider) {
 .sidebar__navigation:last-of-type + div:not(.floating-pagination), .sidebar__subscribed, .sidebar__unsubscribed {
     margin-top: 15px;
 }
-.div:has(> .sidebar__heading):has(#sg2o-level-slider) > h3 ~ div{
+div:has(> .sidebar__heading):has(#sg2o-level-slider) > h3 ~ div {
     text-indent: 10px;
 }
 div:has(> .sidebar__heading):has(#sg2o-level-slider) h3 {
@@ -4015,6 +3434,9 @@ div:has(> .sidebar__heading):has(#sg2o-level-slider) h3 {
     font-size: 11px;
     opacity: 1;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 215px!important;
 }
 .sidebar__navigation__itemz .sidebar__navigation__item__link:not(:hover) .sidebar__navigation__item__underline {
     border-bottom: 1px dotted hsla(0, 0%, 70%, 0.5);
@@ -4559,9 +3981,6 @@ label.SGPP__settings-checkbox:before {
     .tab-links a {
         font-size: 13px!important;
     }
-    .cmGame:not(.legend) {
-        font-size: 14px!important;
-    }
 }
 @media screen and (max-width: 1130px) {
     .tab-links a {
@@ -4614,10 +4033,6 @@ label.SGPP__settings-checkbox:before {
 .global__image-outer-wrap--game-large img {
     min-width: 292px;
     min-height: 136px;
-}
-#content .global__image-outer-wrap--game-large img {
-    min-width: 150px;
-    min-height: 70px;
 }
 .widget-container > div:not(:first-child)[style*="230px"] {
     margin-left: 231px!important;
@@ -4969,6 +4384,15 @@ label.SGPP__settings-checkbox:before {
     opacity: 0.6;
     text-shadow: var(--SGSP-ts-41);
 }
+.esgst-gm-giveaway {
+    opacity: 0.85;
+}
+.esgst-gm-giveaway:hover {
+    filter: var(--SGSP-button-hover-brightness);
+} 
+.esgst-gm-giveaway.selected  {
+    background-color: var(--SGSP-notification-blue-border-color)!important;
+}
 .esgst-gm-giveaway.error {
     background-color: hsla(0, 71%, 45%, 0.8)!important;
 }
@@ -5157,7 +4581,7 @@ label.SGPP__settings-checkbox:before {
     margin: 3px 0 0;
     padding: 8px 5px!important;
 }
-.esgst-gv-popout .giveaway__columns:not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button):not(.giveaway__column--new):not(.giveaway__column--wish) {
+.esgst-gv-popout .giveaway__columns:not(.esgst-giveaway-panel):not(.esgst-qe-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button) {
     border: none;
     background: none!important;
     box-shadow: none!important;
@@ -5349,10 +4773,10 @@ input:checked + .esgst-toggle-switch-slider {
 .homepage_table_column_heading {
     color: hsla(0, 0%, 75%, 0.8)!important;
 }
-.esgst-adots h3 a:visited {
+.esgst-adots h3 a:visited, a.homepage_table_column_heading:visited, .sidebar__navigation__item__link:visited .sidebar__navigation__item__underline .sidebar__navigation__item__title {
     color: var(--SGSP-visited-txt-color)!important;
 }
-.markdown a:visited:not(.esgst-gc) {
+:is(.review_description, .comment_body_default, .page__description__display-state .markdown--resize-body, .giveaway__description-panel .markdown--resize-body, .comment__display-state .markdown--resize-body, .comment).markdown a:visited {
     color: var(--SGSP-visited-other-txt-color)!important;
 }
 .esgst-adots .table__row-outer-wrap {
@@ -5573,6 +4997,9 @@ input:checked + .esgst-toggle-switch-slider {
     padding: 0 4px!important;
     width: 70px!important;
 }
+.esgst-gf-container input[type="date"] {
+    width: fit-content!important;
+}
 .esgst-gf-filter-count {
     background-color: var(--SGSP-content-inner-bg-color);
     border-radius: 4px;
@@ -5667,7 +5094,7 @@ input:checked + .esgst-toggle-switch-slider {
     margin-right: 5px;
 }
 .esgst-gf-boolean-filters > *, .esgst-gf-string-filters > div:not(.esgst-gf-legend-panel), .esgst-gf-number-filters > * {
-    margin-top: 3px;
+    margin-bottom: 3px;
 }
 .esgst-gf-number-filters span:not(.esgst-gf-filter-count) {
     margin-left: 5px;
@@ -5831,8 +5258,8 @@ input:checked + .esgst-toggle-switch-slider {
     filter: var(--SGSP-button-hover-brightness);
 }
 ::file-selector-button:active {
-    border-color: hsla(0, 0%, 0%, 0.75) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 0%, 0.75)!important;
     border: 1px solid;
+    border-color: hsla(0, 0%, 0%, 0.75) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 55%, 0.5) hsla(0, 0%, 0%, 0.75)!important;
     box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.5) inset, 7px 7px 10px hsla(0, 0%, 5%, 0.5) inset!important;
     margin-top: 0;
     margin-left: 0;
@@ -6366,7 +5793,8 @@ input[placeholder="Filter features..."] {
     color: var(--SGSP-green-icons-txt-color)!important;
 }
 .comment__parent .esgst-cerb-reply-button {
-    margin-top: 50px;
+    margin-top: calc(var(--SGSP-comment-avatar-size) + 15px);
+    width: calc(var(--SGSP-comment-avatar-size) + 15px);
 }
 .esgst-popup .table__row-outer-wrap.esgst-relative {
     padding: 10px 5px 10px 18px!important;
@@ -7619,61 +7047,6 @@ header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > .page__hea
     margin: 5px 0 -9px;
     border: 1px solid hsla(0, 0%, 0%, 0.6)!important;
 }
-header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > div:nth-child(3):not(.page__heading):not(.table):not(.table__heading):not(.poll), header.fixed ~ .page__outer-wrap .sidebar--wide + div > div:nth-child(4):not(.esgst-fh):not(.pagination):not(.comment--submit) {
-    margin-bottom: auto!important;
-    height: calc(100% - 68px);
-    padding: 15px 10px 0 20px!important;
-}
-header.fixed ~ .page__outer-wrap .sidebar--wide + div > div:nth-child(4):not(.pagination):not(.comment--submit) {
-    height: calc(100% - 443px)!important;
-}
-header.fixed ~ .page__outer-wrap .sidebar:not(.sidebar--wide) + div > div[style*="clear"]:nth-child(3) .giveaway__row-outer-wrap, header.fixed ~ .page__outer-wrap .sidebar--wide + div > div[style*="clear"]:nth-child(4):not(.esgst-fh) .giveaway__row-outer-wrap {
-    max-width: 13.4%;
-    margin-right: 0.2%;
-    margin-left: 0.5%;
-}
-header.fixed ~ .page__outer-wrap .sidebar--wide + div .pinned-giveaways__outer-wrap[style*="clear"] .giveaway__row-outer-wrap {
-    max-width: 13.4%;
-    margin-right: 3%;
-    margin-left: 3.5%;
-}
-.hover-panel__outer-wrap {
-    background-color: var(--SGSP-body-bg-color);
-    border: 1px solid #000;
-}
-.align-button-container-top .form__add-answer-button {
-    margin-right: 2px;
-}
-.user__whitened .fa, .user__blackened .fa {
-    margin: 0 0 1px!important;
-    font: normal normal normal 13px/1.3 FontAwesome;
-    line-height: unset;
-}
-a.user__whitened, a.user__blackened, .comment__username:not(.comment__username--op) a.user__whitened, .comment__username:not(.comment__username--op) a.user__blackened {
-    border-bottom: none;
-    box-shadow: 0 0 0 1px black!important;
-    padding: 2px 5px!important;
-    line-height: 18px!important;
-    text-shadow: var(--SGSP-ts-43)!important;
-}
-.giveaway__column--width-fill.text-right .user__whitened, .giveaway__column--width-fill.text-right .user__blackened {
-    padding: 2px 5px 0!important;
-    line-height: 14px!important;
-}
-#sub_debugging + .form__submit-button {
-    margin-bottom: 20px;
-}
-.sidebar__shortcut-inner-wrap > .sidebar__entry-loading:not(.sidebar__search-container):not(:active) + form[style*="background-image"] {
-    background-image: none!important;
-    border: none!important;
-}
-.giveaway__columns--badges .giveaway__column--new, .giveaway__columns--badges .giveaway__column--wish {
-    border-color: #000!important;
-    filter: saturate(2) opacity(0.8);
-}
-.nav__buton--is-dropdown[href*="ribbit"] {
-    border-radius: 4px 0 0 4px;
-}
 .comment__role-name {
     color: #c3793f;
 }
@@ -8398,7 +7771,7 @@ tr td:first-of-type .swi-block,  tr td:first-of-type .ggdeals-price-container {
     will-change: filter, color;
 }
 .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--insert, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-btn--delete, .giveaway__row-inner-wrap.has-description .giveaway__quick-entry-loading, .giveaway__quick-entry-wrap, .giveaway__quick-entry-error {
-    border-color: var(--SGSP-giveaway-columns-border-color);
+    border-color: hsla(0, 0%, 33%, 85%);
 }
 .giveaway__quick-entry-btn--delete:hover {
     background-image: linear-gradient(hsl(0 0% 27%) 0%, hsl(0 0% 21%) 100%);
@@ -8427,11 +7800,11 @@ tr td:first-of-type .swi-block,  tr td:first-of-type .ggdeals-price-container {
     background-color: var(--SGSP-content-inner-bg-color);
     border: 1px solid var(--SGSP-content-inner-border-color);
 }
-header[data-esgst-parsed] ~ .page__outer-wrap .giveaway__quick-entry-wrap {
+.giveaway__row-outer-wrap:not(.esgst-gv-container):has(.giveaway__quick-entry-wrap) .giveaway__quick-entry-wrap {
     margin-bottom: 4px;
 }
 .esgst-elgb-desc-shortcut + [data-draggable-id="elgb"]:not(.esgst-hidden) {
-    display: inline-block !important;
+    display: inline-block!important;
 }
 .esgst-gv-box .esgst-gv-icons.giveaway__columns .esgst-elgb-desc-shortcut {
     background-image: linear-gradient(hsl(0 0% 33%) 0%, hsl(0, 0%, 25%) 100%)!important;
@@ -8487,6 +7860,46 @@ header[data-esgst-parsed] ~ .page__outer-wrap .giveaway__quick-entry-wrap {
     overflow: clip;
     max-width: 8.5ch;
 }
+.esgst-mgc-table .table__heading {
+    padding: 8px 10px 10px 20px;
+}
+.esgst-mgc-description a {
+    color: var(--SGSP-link-txt-color);
+}
+input[type="date"] {
+    color-scheme: dark;
+}
+select, select::picker(select) {
+    appearance: base-select;
+}
+select {
+    display: inline-flex!important;
+}
+select::picker-icon {
+    flex-shrink: 0;
+}
+select::picker(select) {
+    background-color: var(--SGSP-body-bg-color);
+    border: solid 1px var(--SGSP-content-border-color);
+    color: var(--SGSP-general-txt-color);
+    border-radius: 4px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    padding: 0px;
+}
+select option {
+    padding: 0 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--SGSP-nav-txt-color);
+}
+select option:hover {
+    background-image: var(--SGSP-nav-dropdown-hover-bg-color);
+    text-shadow: var(--SGSP-ts-51);
+    border-radius:0;
+    filter: var(--SGSP-nav-button-hover-brightness) var(--SGSP-nav-button-hover-saturate);
+}
 .esgst-ge-sgt-button > .form__submit-button {
     border-color: hsla(185, 65%, 48%, 1) #3197a0 hsla(185, 60%, 36%, 1) #3197a0!important;
 }
@@ -8518,6 +7931,71 @@ header[data-esgst-parsed] ~ .page__outer-wrap .giveaway__quick-entry-wrap {
     border-color: hsla(185,65%,48%,1) #3197a0 hsla(185,60%,36%,1) #3197a0!important;
 }
 `;
+  if (window.location.host == 'www.sgtools.info') {
+     css += `@property --sgtools-theme {
+  syntax: "<custom-ident>";
+  inherits: true;
+  initial-value: default;
+}
+[data-theme="modern"] {
+    --sgtools-theme: modern;
+    --SGSP-image-brightness: 0.8;
+    --SGSP-page-width-sgt: 100%;
+    --_color-text: oklch(from var(--color-text) 0.9 c h);
+    --_color-heading: oklch(from var(--color-heading) 0.9 c h);
+    --_row-border: hsl(from var(--row-border) h calc(s + 5) calc(l + 5));
+    --accent-grad: linear-gradient(135deg, hsl(from var(--accent) h s calc(l - 9)) 0%, hsl(from var(--accent) h s calc(l - 28)) 100%);
+    --accent-glow: 0 10px 24px -10px hsl(from var(--accent) h s calc(l - 9) / 0.45);
+}
+@container style(--sgtools-theme: modern) {
+    body {
+        --input-text: var(--_color-text);
+        --color-text: var(--_color-text);
+        --color-heading: var(--_color-heading);
+        --navbtn-text: var(--_color-text)!important;
+        --row-border: var(--_row-border);
+    }
+    #footer a, #footer .link-button, .pager__btn.is-current, .game-card__badge, .ga-tile__points, .ga-tile__status, .center .ga-tile__actions a, .center .ga-tile__actions .link-button, .ef-card__icon, .rule-builder__cond-btn.is-active, .center .wrap .list li.fa-check:before, .home-card__icon, .center button[type=submit], .center input[type=submit], .center .btn, .center a.btn, .center .tab-links li.active button, .center .btn--reveal, .theme-switch select, .nav__row:hover i, .nav__row:hover .nav__row__summary__name {
+        color: var(--_color-text);
+    }
+    .ef-switch__thumb {
+        background: var(--_color-text);
+    }
+    #content a.home-card {
+        border-bottom-color: var(--accent);
+    }
+    #header {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+    }
+    #header nav, #content {
+        max-width: var(--SGSP-page-width-sgt);
+    }
+    .nav__button-container:not(.nav__button-container--notification) .nav__button:hover {
+        background: oklch(from currentColor l c h / 0.1);
+    }
+    #content {
+        padding-top: 71px;
+    }
+    @container style(--SGSP-page-width-sgt: 100%) {
+        .center .wrap:before {
+            top: -39px;
+            right: -20px;
+        }
+    }
+    .ga-tile__status, .ga-tile__actions a:hover, .ga-tile__actions .link-button:hover {
+        text-shadow: 0 0 3px hsla(0, 0%, 0%, 1);
+    }
+    .btn {
+        text-shadow: 0 0 5px hsla(0, 0%, 0%, .3)!important;
+    }
+    img, [style*="background-image"], svg.chart-svg > * {
+        filter: var(--SGSP-image-brightness);
+    }
+}
+`;
+  };
   if (window.location.pathname.match(/^\/discussions\/bookmarked/)) {
     css += `.esgst-idb-highlight, .esgst-idb-highlight.table__row-outer-wrap {
     background-color: unset!important;
