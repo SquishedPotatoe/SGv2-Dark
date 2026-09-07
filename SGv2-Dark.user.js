@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SGv2 Dark
-// @namespace      SGv2 Dark 1.8.5
-// @version        1.8.5
+// @namespace      SGv2 Dark 1.8.6
+// @version        1.8.6
 // @description    SGv2 Dark style for www.steamgifts.com, www.steamtrades.com, www.sgtools.com. Compatible with most scripts found in the addon registry
 // @author         SquishedPotatoe (https://github.com/SquishedPotatoe)
 // @homepageURL    https://github.com/SquishedPotatoe/SGv2-Dark
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 function addCss() {
-  var css = `/* SGv2 Dark v1.8.5  2026-07-26 */
+  var css = `/* SGv2 Dark v1.8.6  2026-09-07 */
 :root {
   --SGSP-body-bg-color: #0f0f0b;
   --SGSP-body-bg-image: "none";
@@ -356,6 +356,9 @@ blockquote::after {
 }
 .chart__subheading__green {
     color: #80cc33;
+}
+.chart:nth-of-type(even) {
+    background-color: var(--SGSP-content-inner-bg-color); border: 1px solid var(--SGSP-content-inner-border-color);
 }
 .chart--genre > .highcharts-container, .chart--giveaways-created > .highcharts-container, .chart--price > .highcharts-container {
     right: 4px;
@@ -1475,7 +1478,7 @@ input:focus, select:focus, button:focus, rect:focus, textarea:focus {
     color: hsla(0, 0%, 75%, 0.9);
     text-shadow: var(--SGSP-ts-72);
 }
-.markdown tbody tr[style*="background"] td a {
+.markdown tbody tr[style*="background"] td a:not(.esgst-gc) {
     color: hsla(0, 0%, 70%, 0.85)!important;
     text-shadow: var(--SGSP-ts-3);
 }
@@ -4581,7 +4584,7 @@ label.SGPP__settings-checkbox:before {
     margin: 3px 0 0;
     padding: 8px 5px!important;
 }
-.esgst-gv-popout .giveaway__columns:not(.esgst-giveaway-panel):not(.esgst-qe-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button) {
+.esgst-gv-popout .giveaway__columns:not(.esgst-giveaway-panel) > *:not(.giveaway__column--group):not(.giveaway__column--whitelist):not(.giveaway__column--invite-only):not(.giveaway__column--community-voted):not(.giveaway__column--contributor-level):not(.giveaway__column--region-restricted):not(form):not(.mt-more-like-this):not(.esgst-elgb-button) {
     border: none;
     background: none!important;
     box-shadow: none!important;
